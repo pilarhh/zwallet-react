@@ -5,8 +5,14 @@ import Footer from '../../components/module/Footer'
 import Input from "../../components/base/Input"
 import Button from "../../components/base/Button"
 import samuel from '../../assets/img/samuel1.png'
+import { useNavigate } from 'react-router-dom'
 
 const TransferInput = () => {
+    const navigate = useNavigate()
+    const handleContinue = () => {
+        navigate('/transfer/confirmation')
+    }
+
     return (
         <div className='d-flex flex-column wrapper-home'>
             <Navbar></Navbar>
@@ -36,7 +42,7 @@ const TransferInput = () => {
                                     <Input class="border-0 border-bottom w-50 ms-2" type="text" placeholder="Add some notes"></Input>
                                 </div>
                             </div>
-                            <Button class="btn btn-primary text-white mt-3 p-2 border-0 float-end d-none d-md-block">
+                            <Button class="btn btn-primary text-white mt-3 p-2 border-0 float-end d-none d-md-block" onClick={handleContinue}>
                                 Continue
                             </Button>
                         </section>

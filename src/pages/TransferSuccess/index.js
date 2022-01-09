@@ -7,8 +7,13 @@ import samuel from '../../assets/img/samuel1.png'
 import success from '../../assets/img/success.svg'
 import share from '../../assets/img/share-2.svg'
 import download from '../../assets/img/download-blue.svg'
+import { useNavigate } from 'react-router-dom'
 
 const TransferInput = () => {
+    const navigate = useNavigate()
+    const handleContinue = () => {
+        navigate('/home')
+    }
     return (
         <div className='d-flex flex-column wrapper-home'>
             <Navbar></Navbar>
@@ -69,7 +74,7 @@ const TransferInput = () => {
                                     <img src={download} alt="" />
                                     <span class="text-primary ms-2">Download PDF</span>
                                 </Button>
-                                <Button class="btn btn-primary text-white mt-3 p-3 border-0 d-none d-md-block">
+                                <Button class="btn btn-primary text-white mt-3 p-3 border-0 d-none d-md-block" onClick={handleContinue}>
                                     Back to Home
                                 </Button>
                             </div>

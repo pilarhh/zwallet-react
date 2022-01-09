@@ -4,9 +4,14 @@ import Sidebar from '../../components/module/Sidebar'
 import Footer from '../../components/module/Footer'
 import samuel from '../../assets/img/samuel1.png'
 import Button from "../../components/base/Button"
+import { useNavigate } from 'react-router-dom'
 
 
 const TransferConfirmation = () => {
+    const navigate = useNavigate()
+    const handleContinue = () => {
+        navigate('/transfer/failed')
+    }
     return (
         <div className='d-flex flex-column wrapper-home'>
             <Navbar></Navbar>
@@ -56,7 +61,7 @@ const TransferConfirmation = () => {
                                         For buying some socks
                                     </div>
                                 </div>
-                                <Button class="btn btn-primary text-white mt-3 p-2 float-end border-0 d-none d-md-block">
+                                <Button class="btn btn-primary text-white mt-3 p-2 float-end border-0 d-none d-md-block" onClick={handleContinue}>
                                     Continue
                                 </Button>
                             </section>

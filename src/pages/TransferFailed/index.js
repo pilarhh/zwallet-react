@@ -5,8 +5,13 @@ import Footer from '../../components/module/Footer'
 import Button from "../../components/base/Button"
 import samuel from '../../assets/img/samuel1.png'
 import failed from '../../assets/img/failed.svg'
+import { useNavigate } from 'react-router-dom'
 
 const TransferInput = () => {
+    const navigate = useNavigate()
+    const handleContinue = () => {
+        navigate('/transfer/success')
+    }
     return (
         <div className='d-flex flex-column wrapper-home'>
             <Navbar></Navbar>
@@ -60,7 +65,7 @@ const TransferInput = () => {
                                     Samuel Suhi <br></br> +62 813-8492-9994
                                 </figcaption>
                             </figure>
-                            <Button class="btn btn-primary text-white mt-3 p-2 float-end border-0 d-none d-md-block">
+                            <Button class="btn btn-primary text-white mt-3 p-2 float-end border-0 d-none d-md-block" onClick={handleContinue}>
                                 Try again
                             </Button>
                         </section>
