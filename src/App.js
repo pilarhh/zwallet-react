@@ -9,6 +9,7 @@ import TransferInput from './pages/TransferInput'
 import TransferConfirmation from './pages/TransferConfirmation'
 import TransferSuccess from './pages/TransferSuccess'
 import TransferFailed from './pages/TransferFailed'
+import RequireAuth from "./components/base/RequireAuth";
 
 const App = () => {
   return (
@@ -16,7 +17,11 @@ const App = () => {
       <Routes>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="home" element={<Home />} />
+        <Route path="home" element={
+          <RequireAuth>
+            <Home />
+          </RequireAuth>
+        } />
         <Route path="history" element={<History />} />
         <Route path="transfer" element={<Transfer />} />
         <Route path="transfer/input" element={<TransferInput />} />

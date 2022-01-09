@@ -26,10 +26,12 @@ const Login = () => {
     const handleClick = () => {
         if (form.email === 'pilarh@gmail.com' && form.password === "ppppp") {
             const profile = {
-                name: 'Pilar H'
+                name: 'Pilar H',
+                email: form.email
             }
             navigate('/Home')
             localStorage.setItem('profile', JSON.stringify(profile))
+            localStorage.setItem('auth', "1")
         } else {
             alert("your email or password is wrong")
         }
