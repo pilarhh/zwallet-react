@@ -1,0 +1,77 @@
+*{
+  font-family: Nunito sans;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap');
+
+.text-success {
+  color: #1EC15F !important;
+}
+
+.text-danger {
+  color:#FF5B37 !important;
+}
+
+/* .row {
+  height: 100vh;
+} */
+
+.col.left {
+  background: url(./assets/img/Mask\ Group.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btn:hover {
+  background-color: #6379f4;
+  color: #ffffff;
+}
+
+.wrapper-home {
+  height: 100vh;
+}
+
+.wrapper-home .header {
+  height: 18%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.header-mobile {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.wrapper-home .footer {
+  height: 7%;
+}
+
+.banner {
+  border-radius: 25px;
+}
+
+.text-primary {
+  color: #6379F4 !important;
+}
+
+.bg-primary {
+  background-color: #6379F4 !important;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 29px;
+}
+
+.sidebar {
+  width: 18%;
+}
+
+.btn-transfer {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary {
+  background-color: #6379F4 !important;
+  width: 15%;
+}
