@@ -23,13 +23,41 @@ const App = () => {
             <Home />
           </RequireAuth>
         } />
-        <Route path="history" element={<History />} />
-        <Route path="transfer" element={<Transfer />} />
-        <Route path="transfer/input/:id" element={<TransferInput />} />
-        <Route path="transfer/confirmation" element={<TransferConfirmation />} />
-        <Route path="transfer/success" element={<TransferSuccess />} />
-        <Route path="transfer/failed" element={<TransferFailed />} />
-        <Route path="profile" element={<Profile />} />
+        <Route path="history" element={
+          <RequireAuth>
+            <History />
+          </RequireAuth>
+        } />
+        <Route path="transfer" element={
+          <RequireAuth>
+            <Transfer />
+          </RequireAuth>
+        } />
+        <Route path="transfer/input/:id" element={
+          <RequireAuth>
+            <TransferInput />
+          </RequireAuth>
+        } />
+        <Route path="transfer/confirmation" element={
+          <RequireAuth>
+            <TransferConfirmation />
+          </RequireAuth>
+        } />
+        <Route path="transfer/success" element={
+          <RequireAuth>
+            <TransferSuccess />
+          </RequireAuth>
+        } />
+        <Route path="transfer/failed" element={
+          <RequireAuth>
+            <TransferFailed />
+          </RequireAuth>
+        } />
+        <Route path="profile" element={
+          <RequireAuth>
+            <Profile />
+          </RequireAuth>
+        } />
       </Routes>
     </BrowserRouter>
   )
