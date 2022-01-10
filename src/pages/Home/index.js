@@ -4,16 +4,13 @@ import Navbar from '../../components/module/Navbar'
 import Sidebar from '../../components/module/Sidebar'
 import Footer from '../../components/module/Footer'
 import { useNavigate } from "react-router-dom"
-import samuel from '../../assets/img/samuel.svg'
-import netflix from '../../assets/img/netflix.svg'
-import christine from '../../assets/img/christine.svg'
-import adobe from '../../assets/img/adobe.svg'
 import arrow2 from '../../assets/img/arrow-up-2.svg'
 import plus2 from '../../assets/img/plus-2.svg'
 import arrowGreen from '../../assets/img/arrow-down-green.svg'
 import arrowRed from '../../assets/img/arrow-up-red.svg'
 import graphic from '../../assets/img/graphic.svg'
 import Button from '../../components/base/Button'
+import TransactionHistory from '../../components/module/TransactionHistory'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -73,44 +70,7 @@ const Home = () => {
                 <h5 class="transaction-title fw-bold">Transaction History</h5>
                 <p><a class="text-decoration-none" href="" onClick={handleClick}>See all</a></p>
               </section>
-              <div class="col mt-3">
-                <figure class="d-flex justify-content-between">
-                  <div class="img-caption d-flex">
-                    <img class="samuel-icon" src={samuel} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                      Samuel Suhi<br></br>Transfer
-                    </figcaption>
-                  </div>
-                  <figcaption class="text-success fw-bold">+Rp50.000</figcaption>
-                </figure>
-                <figure class="d-flex justify-content-between">
-                  <div class="d-flex">
-                    <img class="samuel-icon" src={netflix} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                      Netflix<br></br>Subscription
-                    </figcaption>
-                  </div>
-                  <figcaption class="text-danger fw-bold">-Rp149.000</figcaption>
-                </figure>
-                <figure class="d-flex justify-content-between">
-                  <div class="d-flex">
-                    <img class="samuel-icon" src={christine} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                      Christine Mar...<br></br>Transfer
-                    </figcaption>
-                  </div>
-                  <figcaption class="text-success fw-bold">+Rp150.000</figcaption>
-                </figure>
-                <figure class="d-flex justify-content-between">
-                  <div class="d-flex">
-                    <img class="samuel-icon" src={adobe} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                      Adobe Inc.<br></br>Subscription
-                    </figcaption>
-                  </div>
-                  <figcaption class="text-danger fw-bold">-Rp249.000</figcaption>
-                </figure>
-              </div>
+              <TransactionHistory></TransactionHistory>
             </section>
           </div>
         </div>

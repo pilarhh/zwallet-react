@@ -3,12 +3,9 @@ import Navbar from '../../components/module/Navbar'
 import Sidebar from '../../components/module/Sidebar'
 import Footer from '../../components/module/Footer'
 import arrow from '../../assets/img/arrow-left-black.svg'
-import samuel from '../../assets/img/samuel.svg'
-import netflix from '../../assets/img/netflix.svg'
-import christine from '../../assets/img/christine.svg'
-import adobe from '../../assets/img/adobe.svg'
 import arrowRed from '../../assets/img/arrow-up-red.svg'
 import arrowGreen from '../../assets/img/arrow-down-green.svg'
+import TransactionHistory from '../../components/module/TransactionHistory'
 
 const History = () => {
   return (
@@ -26,43 +23,7 @@ const History = () => {
               <h4 class="d-none d-md-block fw-bold">Transaction History</h4>
               <div class="history-list">
                 <p class="fw-lighter my-4">This Week</p>
-                <figure class="d-flex justify-content-between">
-                  <div class="img-caption d-flex">
-                    <img class="samuel-icon" src={samuel} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                      Samuel Suhi<br></br>Transfer
-                    </figcaption>
-                  </div>
-                  <figcaption class="text-success fw-bold">+Rp50.000</figcaption>
-                </figure>
-                <figure class="d-flex justify-content-between">
-                  <div class="d-flex">
-                    <img class="samuel-icon" src={netflix} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                      Netflix<br></br>Subscription
-                    </figcaption>
-                  </div>
-                  <figcaption class="text-danger fw-bold">-Rp149.000</figcaption>
-                </figure>
-                <p class="my-4 fw-lighter">This Month</p>
-                <figure class="d-flex justify-content-between">
-                  <div class="d-flex">
-                    <img class="samuel-icon" src={christine} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                      Christine Mar...<br></br>Transfer
-                    </figcaption>
-                  </div>
-                  <figcaption class="text-success fw-bold">+Rp150.000</figcaption>
-                </figure>
-                <figure class="d-flex justify-content-between">
-                  <div class="d-flex">
-                    <img class="samuel-icon" src={adobe} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                      Adobe Inc.<br></br>Subscription
-                    </figcaption>
-                  </div>
-                  <figcaption class="text-danger fw-bold">-Rp249.000</figcaption>
-                </figure>
+                <TransactionHistory></TransactionHistory>
               </div>
             </section>
           </div>

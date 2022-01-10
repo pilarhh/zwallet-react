@@ -34,8 +34,11 @@ In this repository, I used bootstrap framework to make the slicing contents base
 
 ## Snippets
 
-Desktop Layout:
-![Log In](/src/assets/img/Screenshot (28).png)
+### Desktop Layout:
+![alt text](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(28).png)
+![alt text](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(31).png)
+![alt text](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(29).png)
 
-Mobile Layout:
+### Mobile Layout:
 ![alt text](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(27).png)
+![alt text](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(30).png)

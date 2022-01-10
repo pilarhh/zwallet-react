@@ -15,7 +15,11 @@ import { useNavigate } from 'react-router-dom'
 const Transfer = () => {
     const navigate = useNavigate()
     const handleClick = () => {
-        navigate('./input')
+        const data = {
+            id: 1
+        }
+        navigate(`./input/${data.id}`)
+        localStorage.setItem('wallet', JSON.stringify(data))
     }
     return (
         <div className='d-flex flex-column wrapper-home'>

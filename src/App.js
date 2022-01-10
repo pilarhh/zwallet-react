@@ -25,7 +25,7 @@ const App = () => {
         } />
         <Route path="history" element={<History />} />
         <Route path="transfer" element={<Transfer />} />
-        <Route path="transfer/input" element={<TransferInput />} />
+        <Route path="transfer/input/:id" element={<TransferInput />} />
         <Route path="transfer/confirmation" element={<TransferConfirmation />} />
         <Route path="transfer/success" element={<TransferSuccess />} />
         <Route path="transfer/failed" element={<TransferFailed />} />
