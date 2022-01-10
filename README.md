@@ -35,4 +35,4 @@ In this repository, I used bootstrap framework to make the slicing contents base
 ## Snippets
 
 Desktop Layout:
-![Log In](./src/assets/img/Screenshot (27).png)
+![Log In](./src/assets/img/Screenshot (28).png)
