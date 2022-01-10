@@ -29,7 +29,7 @@ const Login = () => {
                 name: 'Pilar H',
                 email: form.email
             }
-            navigate('/Home')
+            navigate('/')
             localStorage.setItem('profile', JSON.stringify(profile))
             localStorage.setItem('auth', "1")
         } else {
