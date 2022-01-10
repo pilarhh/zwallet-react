@@ -3,7 +3,7 @@ import pict from '../../../assets/img/Group 31.svg'
 import bell from '../../../assets/img/bell.svg'
 
 const Header = () => {
-    const user = JSON.parse(localStorage.getItem('profile'));
+    const user = JSON.parse(localStorage.getItem('profile'))
     return (
         <div className='header d-flex justify-content-between p-5 mx-3 d-none d-md-flex'>
             <div class="d-none d-md-block brand text-primary fw-bold">Zwallet</div>
