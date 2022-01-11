@@ -20,18 +20,17 @@ const TransactionHistory = () => {
         name: "Disney+",
         desc: "Transfer",
         amount: "+Rp500.000"
-    },
-    {
-        name: "WeTV",
-        desc: "Subscription",
-        amount: "+Rp20.000"
     }])
 
     useEffect(()=>{
         if (state) {
-            setState([...state, ])
+            setState([...state, {
+                name: "WeTV",
+                desc: "Subscription",
+                amount: "+Rp20.000"
+            }])
         }
-    })
+    },[])
 
     return (
         <div class="col mt-3">

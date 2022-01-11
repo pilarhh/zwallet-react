@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useState } from "react";
 export const userContext = createContext(null);
 
 const UserContext = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({name: ""});
   useEffect(() => {
     const userLS = JSON.parse(localStorage.getItem("profile"));
     if (userLS) setUser(userLS);

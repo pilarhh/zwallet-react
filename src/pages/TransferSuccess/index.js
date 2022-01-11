@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom'
 const TransferInput = () => {
     const navigate = useNavigate()
     const handleContinue = () => {
-        navigate('/home')
+        navigate('/')
     }
     return (
         <div className='d-flex flex-column wrapper-home'>

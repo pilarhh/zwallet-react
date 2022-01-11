@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/rules-of-hooks */
-import React, { useContext} from 'react'
+import React, { useContext } from 'react'
 import pict from '../../../assets/img/Group 31.svg'
 import bell from '../../../assets/img/bell.svg'
 import { userContext } from '../../../context/UserContext'
 
-const navbar = () => {
+const Navbar = () => {
+    // const user = JSON.parse(localStorage.getItem('profile'))
     const {user, setUser} = useContext(userContext)
     return (
         <div className='header d-flex justify-content-between p-5 mx-3 d-none d-md-flex'>
@@ -22,4 +22,4 @@ const navbar = () => {
     )
 }
 
-export default navbar
+export default Navbar
