@@ -8,6 +8,7 @@ import '../../App.css'
 import mail from '../../assets/img/mail.svg'
 import lock from '../../assets/img/lock.svg'
 import person from '../../assets/img/person.svg'
+import axios from "axios"
 
 
 const Login = () => {
@@ -17,6 +18,7 @@ const Login = () => {
         password: ""
     })
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
 
     const handleChange = (e) => {
         setForm({
@@ -25,8 +27,25 @@ const Login = () => {
         });
     };
 
+    const handleClick = () => {
+        setLoading(true)
+        axios.post(`${process.env.REACT_APP_URL_BACKEND}/users/register`, {
+            username : form.username,
+            email: form.email,
+            password : form.password
+        }).then((res) => {
+            setLoading(false)
+            const result = res.data
+            console.log(result)
+            navigate('/Login')
+        }).catch((err) => {
+            setLoading(false)
+            console.log(err.message)
+        })
+    }
+
     const handleLogin = () => {
-        navigate('/Login')
+        navigate('/login')
     }
 
     return (
@@ -77,7 +96,7 @@ const Login = () => {
                 </div>
 
                 <p className="text-end mt-3 text-dark"><a href="" className="text-dark text-decoration-none">Forgot Password?</a></p>
-                <Button onClick={handleLogin} className="btn btn-light w-100 mt-5">
+                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-100 mt-5">
                     Sign Up
                 </Button>
                 <p className="text-center mt-4">Already have an account? Let's <a href="" onClick={handleLogin} className="text-decoration-none">Log in</a></p>

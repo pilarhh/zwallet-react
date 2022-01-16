@@ -15,7 +15,7 @@ const Profile = () => {
         localStorage.removeItem("auth")
         navigate('/login')
     }
-    const user = JSON.parse(localStorage.getItem('profile'))
+    const user = JSON.parse(localStorage.getItem('user'))
     return (
         <div className='d-flex flex-column wrapper-home'>
             <Navbar></Navbar>
@@ -33,7 +33,7 @@ const Profile = () => {
                             </div>
 
                             <div className="d-flex flex-column align-items-center">
-                                <p className="fw-bold">{user.name}</p>
+                                {/* <p className="fw-bold">{user.name}</p> */}
                                 <p className="text-secondary">+62 813-9387-7946</p>
                             </div>
 
