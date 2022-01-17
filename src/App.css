@@ -94,3 +94,19 @@
   line-height: 28px;
   color: #4d4b57;
 }
+
+.pincode-input-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pincode-input-text {
+  height: 60px!important;
+  border-radius: 10px;
+  border: 1px solid rgba(169, 169, 169, 0.6)!important;
+  background: #FFFFFF!important;
+}
+
+.pincode-input-text:focus {
+  border: 1px solid #6379F4!important;
+}

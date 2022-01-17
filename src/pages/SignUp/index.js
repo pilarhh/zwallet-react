@@ -37,7 +37,7 @@ const Login = () => {
             setLoading(false)
             const result = res.data
             console.log(result)
-            navigate('/Login')
+            navigate('/createpin')
         }).catch((err) => {
             setLoading(false)
             console.log(err.message)
@@ -66,8 +66,8 @@ const Login = () => {
                     <Input
                         className="mb-4 border-0 w-75 border-bottom ms-2"
                         onChange={handleChange}
-                        name="name"
-                        value={form.name}
+                        name="username"
+                        value={form.username}
                         type="text"
                         placeholder="Enter your username"
                     />

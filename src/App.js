@@ -22,6 +22,7 @@ const App = () => {
       <Routes>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="createpin" element={<CreatePin />} />
         <Route path="/" element={
           <RequireAuth>
             <Home />
@@ -60,11 +61,6 @@ const App = () => {
         <Route path="profile" element={
           <RequireAuth>
             <Profile />
-          </RequireAuth>
-        } />
-        <Route path="createpin" element={
-          <RequireAuth>
-            <CreatePin />
           </RequireAuth>
         } />
         <Route path="changepin" element={

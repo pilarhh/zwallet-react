@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useContext} from 'react'
 import Navbar from '../../components/module/Navbar'
 import Sidebar from '../../components/module/Sidebar'
 import Footer from '../../components/module/Footer'
@@ -10,16 +10,14 @@ import momo from '../../assets/img/3.svg'
 import jessica from '../../assets/img/4.svg'
 import michael from '../../assets/img/8.svg'
 import { useNavigate } from 'react-router-dom'
+import { userContext } from '../../context/UserContext'
 
 
 const Transfer = () => {
     const navigate = useNavigate()
+    const {user, setUser} = useContext(userContext)
     const handleClick = () => {
-        const data = {
-            id: 1
-        }
-        navigate(`./input/${data.id}`)
-        localStorage.setItem('wallet', JSON.stringify(data))
+        navigate(`./input/${user.id}`)
     }
     return (
         <div className='d-flex flex-column wrapper-home'>

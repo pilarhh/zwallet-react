@@ -3,9 +3,9 @@ import React, { createContext, useEffect, useState } from "react";
 export const userContext = createContext(null);
 
 const UserContext = ({ children }) => {
-  const [user, setUser] = useState({name: ""});
+  const [user, setUser] = useState({});
   useEffect(() => {
-    const userLS = JSON.parse(localStorage.getItem("profile"));
+    const userLS = JSON.parse(localStorage.getItem("user"));
     if (userLS) setUser(userLS);
   }, []);
 

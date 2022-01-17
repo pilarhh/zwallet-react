@@ -100,7 +100,7 @@ const Login = () => {
                 </div>
 
                 <p className="text-end mt-3 text-dark"><a href="" className="text-dark text-decoration-none">Forgot Password?</a></p>
-                <Button isLoading = {loading} onClick={handleClick} className="btn btn-light w-100 mt-5">
+                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-100 mt-5">
                     Login
                 </Button>
                 <p className="text-center mt-4">Don’t have an account? Let's <a href="" onClick={handleSignup} className="text-decoration-none">Sign up</a></p>

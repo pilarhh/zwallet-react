@@ -1,15 +1,36 @@
-import React from 'react'
+import React, { useState, useContext} from 'react'
 import Navbar from '../../components/module/Navbar'
 import Sidebar from '../../components/module/Sidebar'
 import Footer from '../../components/module/Footer'
-import Input from "../../components/base/Input"
 import Button from "../../components/base/Button"
 import { useNavigate } from 'react-router-dom'
+import PinInput from 'react-pin-input'
+import "../../App.css"
+import { userContext } from '../../context/UserContext'
+import axios from 'axios'
 
 const PhoneNumber = () => {
+    const [form, setForm] = useState({
+        pin: ""
+    })
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.pin]: e.target.form.pin,
+        });
+    };
+    const { user, setUser } = useContext(userContext)
     const navigate = useNavigate()
     const handleContinue = () => {
-        navigate('')
+        axios.put(`${process.env.REACT_APP_URL_BACKEND}/users/changepin/${user.id}`, {
+            pin: form.pin
+        }).then((res) => {
+            const result = res.data
+            console.log(result)
+            navigate('/profile')
+        }).catch((err) => {
+            console.log(err.message)
+        })
     }
 
     return (
@@ -26,10 +47,19 @@ const PhoneNumber = () => {
                                 continue to the next steps.
                             </p>
                             <div class="my-5 mb-5 text-center">
-                                <div class="form">
-                                    
-                                    <Input class="border-0 border-bottom w-50 ms-2" type="number" placeholder=""></Input>
-                                </div>
+                                <PinInput
+                                    length={6}
+                                    initialValue=""
+                                    type="numeric"
+                                    inputMode="number"
+                                    onChange={handleChange}
+                                    style={{ width: '50%', marginLeft: '25%' }}
+                                    inputStyle={{ borderColor: 'red' }}
+                                    inputFocusStyle={{ borderColor: 'blue' }}
+                                    onComplete={(value, index) => { }}
+                                    autoSelect={true}
+                                    regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
+                                />
                                 <Button class="btn btn-light mt-3 p-2 border-0 w-50 mt-5 text-secondary" onClick={handleContinue}>
                                     Continue
                                 </Button>

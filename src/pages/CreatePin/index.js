@@ -1,18 +1,29 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom"
-import Input from "../../components/base/Input"
 import Button from "../../components/base/Button"
 import RegisterLayout from "../../components/module/RegisterLeftBox/index"
 import '../../App.css'
+import PinInput from "react-pin-input";
+import axios from 'axios'
+import { userContext } from '../../context/UserContext'
 
 const CreatePin = () => {
+    const [form, setForm] = useState({
+        pin: ""
+    })
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value,
+        });
+    };
+    const { user, setUser } = useContext(userContext)
     const navigate = useNavigate()
-
     const handleClick = () => {
-        navigate()
+        navigate('/login')
+       
     }
-
-    
 
     return (
         <div className="row">
@@ -28,7 +39,18 @@ const CreatePin = () => {
                     Create a PIN that’s contain 6 digits number for<br />
                     security purpose in Zwallet.
                 </p>
-                <Input></Input>
+                <PinInput
+                    length={6}
+                    initialValue=""
+                    type="numeric"
+                    inputMode="number"
+                    style={{ width: '80%' }}
+                    inputStyle={{ borderColor: 'red' }}
+                    inputFocusStyle={{ borderColor: 'blue' }}
+                    onComplete={(value, index) => { }}
+                    autoSelect={true}
+                    regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
+                />
                 <Button onClick={handleClick} className="btn btn-light w-100 mt-5">
                     Confirm
                 </Button>

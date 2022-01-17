@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 const Sidebar = () => {
     const navigate = useNavigate()
     const handleLogout = () => {
-        localStorage.removeItem("auth")
+        localStorage.clear()
         navigate('/login')
     }
     const handleProfile = () => {
