@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import Input from "../../components/base/Input"
 import Button from "../../components/base/Button"
 import RegisterLayout from "../../components/module/RegisterLeftBox/index"
@@ -58,9 +58,7 @@ const Login = () => {
         // }
     }
 
-    const handleSignup = () => {
-        navigate('/SignUp')
-    }
+    
 
     return (
         <div className="row">
@@ -103,7 +101,7 @@ const Login = () => {
                 <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-100 mt-5">
                     Login
                 </Button>
-                <p className="text-center mt-4">Don’t have an account? Let's <a href="" onClick={handleSignup} className="text-decoration-none">Sign up</a></p>
+                <p className="text-center mt-4">Don’t have an account? Let's <Link to="/Signup" className="text-decoration-none">Sign up</Link></p>
             </div>
         </div>
     )
