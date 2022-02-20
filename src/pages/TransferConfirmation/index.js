@@ -12,6 +12,10 @@ const TransferConfirmation = () => {
     const handleContinue = () => {
         navigate('/transfer/failed')
     }
+
+    const wallet = JSON.parse(localStorage.getItem('wallet'))
+    const transfer = JSON.parse(localStorage.getItem('transfer'))
+
     return (
         <div className='d-flex flex-column wrapper-home'>
             <Navbar></Navbar>
@@ -23,8 +27,8 @@ const TransferConfirmation = () => {
                             <h4 class="fw-bold fs-5 ms-2 mt-4">Transfer To</h4>
                             <figure class="d-flex ms-3 mt-3">
                                 <img src={samuel} alt="" />
-                                <figcaption class="ms-3 1h-base">
-                                    Samuel Suhi <br></br> +62 813-8492-9994
+                                <figcaption class="ms-3 lh-lg fw-bolder">
+                                    {wallet.username} <br></br> {wallet.phone_number}
                                 </figcaption>
                             </figure>
                             <section>
@@ -34,7 +38,7 @@ const TransferConfirmation = () => {
                                         Amount
                                     </div>
                                     <div class="fw-bold ms-3 mt-2">
-                                        Rp 100.000
+                                        Rp{transfer.amount}
                                     </div>
                                 </div>
                                 <div class="ms-2 mt-4">
@@ -42,7 +46,7 @@ const TransferConfirmation = () => {
                                         Balance Left
                                     </div>
                                     <div class="fw-bold ms-3 mt-2">
-                                        Rp 20.000
+                                        Rp
                                     </div>
                                 </div>
                                 <div class="ms-2 mt-4">
@@ -50,7 +54,7 @@ const TransferConfirmation = () => {
                                         Date & Time
                                     </div>
                                     <div class="fw-bold ms-3 mt-2">
-                                        May 11, 2020 - 12.20
+                                        {transfer.date}
                                     </div>
                                 </div>
                                 <div class="ms-2 mt-4">
@@ -58,7 +62,7 @@ const TransferConfirmation = () => {
                                         Notes
                                     </div>
                                     <div class="fw-bold ms-3 mt-2">
-                                        For buying some socks
+                                        {transfer.notes}
                                     </div>
                                 </div>
                                 <Button class="btn btn-primary text-white mt-3 p-2 float-end border-0 d-none d-md-block" onClick={handleContinue}>

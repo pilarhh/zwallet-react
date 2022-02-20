@@ -39,7 +39,7 @@ const Profile = () => {
 
                             <div className="d-flex flex-column align-items-center">
                                 <p className="fw-bold">{user.username}</p>
-                                <p className="text-secondary">+62 813-9387-7946</p>
+                                <p className="text-secondary">{user.phone_number}</p>
                             </div>
 
                             <div className="profile-box d-flex flex-row justify-content-between w-50">

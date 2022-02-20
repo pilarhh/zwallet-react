@@ -8,7 +8,9 @@ import '../../App.css'
 import mail from '../../assets/img/mail.svg'
 import lock from '../../assets/img/lock.svg'
 import person from '../../assets/img/person.svg'
-import axios from "axios"
+// import axios from "axios"
+import { useDispatch, useSelector } from 'react-redux'
+import { register } from "../../redux/actions/register"
 
 
 const Login = () => {
@@ -20,6 +22,9 @@ const Login = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
 
+    const dispatch = useDispatch()
+    const data = useSelector((state) => state.Register)
+
     const handleChange = (e) => {
         setForm({
             ...form,
@@ -28,20 +33,21 @@ const Login = () => {
     };
 
     const handleClick = () => {
-        setLoading(true)
-        axios.post(`${process.env.REACT_APP_URL_BACKEND}/users/register`, {
-            username : form.username,
-            email: form.email,
-            password : form.password
-        }).then((res) => {
-            setLoading(false)
-            const result = res.data
-            console.log(result)
-            navigate('/createpin')
-        }).catch((err) => {
-            setLoading(false)
-            console.log(err.message)
-        })
+        dispatch(register({navigate, form}))
+        // setLoading(true)
+        // axios.post(`${process.env.REACT_APP_URL_BACKEND}/users/register`, {
+        //     username : form.username,
+        //     email: form.email,
+        //     password : form.password
+        // }).then((res) => {
+        //     setLoading(false)
+        //     const result = res.data
+        //     console.log(result)
+        //     navigate('/createpin')
+        // }).catch((err) => {
+        //     setLoading(false)
+        //     console.log(err.message)
+        // })
     }
 
     const handleLogin = () => {

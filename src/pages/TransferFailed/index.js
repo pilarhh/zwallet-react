@@ -61,7 +61,7 @@ const TransferInput = () => {
                             <h4 class="fw-bold fs-5 ms-2 mt-4">Transfer To</h4>
                             <figure class="d-flex ms-3 mt-4">
                                 <img src={samuel} alt="" />
-                                <figcaption class="ms-3 1h-base">
+                                <figcaption class="ms-3 lh-lg fw-bolder">
                                     Samuel Suhi <br></br> +62 813-8492-9994
                                 </figcaption>
                             </figure>

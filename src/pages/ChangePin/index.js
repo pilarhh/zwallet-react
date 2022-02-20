@@ -9,6 +9,8 @@ import PinInput from 'react-pin-input'
 import "../../App.css"
 import { userContext } from '../../context/UserContext'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { changePin } from '../../redux/actions/changePin'
 
 const PhoneNumber = () => {
     const [form, setForm] = useState({
@@ -22,16 +24,23 @@ const PhoneNumber = () => {
     };
     const { user, setUser } = useContext(userContext)
     const navigate = useNavigate()
+    // const handleContinue = () => {
+    //     axios.put(`${process.env.REACT_APP_URL_BACKEND}/users/changepin/${user.id}`, {
+    //         pin: form.pin
+    //     }).then((res) => {
+    //         const result = res.data
+    //         console.log(form)
+    //         navigate('/profile')
+    //     }).catch((err) => {
+    //         console.log(err.message)
+    //     })
+    // }
+    const dispatch = useDispatch()
+    const data = useSelector((state) => state.ChangePin)
+    console.log(data)
+
     const handleContinue = () => {
-        axios.put(`${process.env.REACT_APP_URL_BACKEND}/users/changepin/${user.id}`, {
-            pin: form.pin
-        }).then((res) => {
-            const result = res.data
-            console.log(result)
-            navigate('/profile')
-        }).catch((err) => {
-            console.log(err.message)
-        })
+        dispatch(changePin(form, navigate, user.id))
     }
 
     return (

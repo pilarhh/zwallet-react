@@ -110,3 +110,7 @@
 .pincode-input-text:focus {
   border: 1px solid #6379F4!important;
 }
+
+.contacts {
+  cursor: pointer;
+}
