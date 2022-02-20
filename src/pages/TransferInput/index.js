@@ -24,6 +24,7 @@ const TransferInput = () => {
             ...form,
             [e.target.name]: e.target.value
         })
+        console.log(form)
     }
 
     const handleContinue = () => {
@@ -62,11 +63,11 @@ const TransferInput = () => {
                                 press continue to the next steps.
                             </p>
                             <div class="mt-4 text-center">
-                                <Input class="border-0 text-center fs-2" type="number" placeholder="0.00" onchange={handleChange}></Input>
+                                <Input class="border-0 text-center fs-2" type="number" placeholder="0.00" name="amount" value={form.amount} onChange={handleChange}></Input>
                                 <p class="fw-bold my-4">Rp{dataWallet.data.balance} Available</p>
                                 <div class="form">
                                     <img src="./img/pencil.svg" alt="" />
-                                    <Input class="border-0 border-bottom w-50 ms-2" type="text" placeholder="Add some notes" onchange={handleChange}></Input>
+                                    <Input class="border-0 border-bottom w-50 ms-2" type="text" placeholder="Add some notes" name="notes" value={form.notes} onChange={handleChange}></Input>
                                 </div>
                             </div>
                             <Button class="btn btn-primary text-white mt-3 p-2 border-0 float-end d-none d-md-block" onClick={handleContinue}>
