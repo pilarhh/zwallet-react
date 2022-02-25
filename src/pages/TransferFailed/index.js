@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 const TransferInput = () => {
     const navigate = useNavigate()
     const handleContinue = () => {
-        navigate('/transfer/success')
+        navigate('/transfer')
     }
     return (
         <div className='d-flex flex-column wrapper-home'>

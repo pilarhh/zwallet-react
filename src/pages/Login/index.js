@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
@@ -7,7 +8,6 @@ import RegisterLayout from "../../components/module/RegisterLeftBox/index"
 import '../../App.css'
 import mail from '../../assets/img/mail.svg'
 import lock from '../../assets/img/lock.svg'
-// import axios from "axios"
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from "../../redux/actions/login"
 
@@ -31,30 +31,6 @@ const Login = () => {
     const handleClick = () => {
         dispatch(login({navigate, form}))
     }
-
-    // const handleClick = () => {
-    //     setLoading(true)
-    //     axios.post(`${process.env.REACT_APP_URL_BACKEND}/users/login`,
-    //         {
-    //             email: form.email,
-    //             password: form.password
-    //         })
-    //         .then((res) => {
-    //             setLoading(false)
-    //             const result = res.data.data
-    //             console.log(result);
-                // localStorage.setItem('auth', "1")
-                // localStorage.setItem('user', JSON.stringify(result))
-    //             navigate('/')
-    //         })
-    //         .catch((err) => {
-    //             setLoading(false)
-    //             alert("your email or password is wrong")
-    //             console.log(err.response);
-    //         })
-    // }
-
-    
 
     return (
         <div className="row">

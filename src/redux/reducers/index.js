@@ -5,6 +5,10 @@ import ChangePin from './changePin'
 import UserDetail from './userDetail'
 import ChangePhone from './changePhone'
 import Login from './login'
+import Transfer from './transfer'
+import TopUp from "./topUp"
+import WalletDetail from './walletDetail'
+import History from "./history"
 
 const rootReducers = combineReducers({
     User,
@@ -12,7 +16,11 @@ const rootReducers = combineReducers({
     ChangePin,
     UserDetail,
     ChangePhone,
-    Login
+    Login,
+    Transfer,
+    TopUp,
+    WalletDetail,
+    History
 })
 
 export default rootReducers

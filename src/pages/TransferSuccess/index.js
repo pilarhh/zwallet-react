@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react'
 import Navbar from '../../components/module/Navbar'
 import Sidebar from '../../components/module/Sidebar'
 import Footer from '../../components/module/Footer'
@@ -8,12 +9,27 @@ import success from '../../assets/img/success.svg'
 import share from '../../assets/img/share-2.svg'
 import download from '../../assets/img/download-blue.svg'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getDetailWallet } from '../../redux/actions/walletDetail'
 
 const TransferInput = () => {
     const navigate = useNavigate()
     const handleContinue = () => {
         navigate('/')
     }
+
+    const dispatch = useDispatch()
+
+    const balance = useSelector((state) => state.WalletDetail)
+
+    useEffect(() => {
+        dispatch(getDetailWallet(user.id))
+    }, [])
+
+    const user = JSON.parse(localStorage.getItem('user'))
+    const wallet = JSON.parse(localStorage.getItem('wallet'))
+    const transfer = JSON.parse(localStorage.getItem('transfer'))
+
     return (
         <div className='d-flex flex-column wrapper-home'>
             <Navbar></Navbar>
@@ -32,7 +48,7 @@ const TransferInput = () => {
                                     Amount
                                 </div>
                                 <div class="fw-bold ms-3 mt-2">
-                                    Rp 100.000
+                                    Rp{transfer.amount}
                                 </div>
                             </div>
                             <div class="ms-2 mt-4">
@@ -40,7 +56,7 @@ const TransferInput = () => {
                                     Balance Left
                                 </div>
                                 <div class="fw-bold ms-3 mt-2">
-                                    Rp 20.000
+                                    Rp{balance?.data.balance}
                                 </div>
                             </div>
                             <div class="ms-2 mt-4">
@@ -48,7 +64,7 @@ const TransferInput = () => {
                                     Date & Time
                                 </div>
                                 <div class="fw-bold ms-3 mt-2">
-                                    May 11, 2020 - 12.20
+                                    {transfer.date}
                                 </div>
                             </div>
                             <div class="ms-2 mt-4">
@@ -56,14 +72,14 @@ const TransferInput = () => {
                                     Notes
                                 </div>
                                 <div class="fw-bold ms-3 mt-2">
-                                    For buying some socks
+                                    {transfer.notes}
                                 </div>
                             </div>
                             <h4 class="fw-bold fs-5 ms-2 mt-4">Transfer To</h4>
                             <figure class="d-flex ms-3 mt-4">
                                 <img src={samuel} alt="" />
                                 <figcaption class="ms-3 lh-lg fw-bolder">
-                                    Samuel Suhi <br></br> +62 813-8492-9994
+                                    {wallet.username} <br></br> {wallet.phone_number}
                                 </figcaption>
                             </figure>
                             <div class="btn-desktop d-flex justify-content-end">

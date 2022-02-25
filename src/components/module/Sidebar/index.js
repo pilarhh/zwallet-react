@@ -3,7 +3,7 @@ import React from 'react'
 import grid from '../../../assets/img/grid.svg'
 import arrow from '../../../assets/img/arrow-up.svg'
 import plus from '../../../assets/img/plus.svg'
-import user from '../../../assets/img/user.svg'
+import users from '../../../assets/img/user.svg'
 import logout from '../../../assets/img/log-out.svg'
 import { useNavigate } from 'react-router-dom'
 
@@ -22,6 +22,10 @@ const Sidebar = () => {
     const handleTransfer = () => {
         navigate('/transfer')
     }
+    const user = JSON.parse(localStorage.getItem('user'))
+    const handleTopup = () => {
+        navigate(`/topup/${user.id}`)
+    }
     return (
         <div className='d-none d-md-flex flex-column justify-content-between p-3 sidebar me-3 shadow-sm rounded'>
             <div class="menu">
@@ -38,14 +42,14 @@ const Sidebar = () => {
                     </a>
                 </div>
                 <div class="my-4">
-                    <a href="" class="icon text-dark my-4 text-decoration-none">
+                    <a href="" class="icon text-dark my-4 text-decoration-none" onClick={handleTopup}>
                         <img src={plus} alt="" />
                         <span class="ms-3">Top Up</span>
                     </a>
                 </div>
                 <div class="my-4">
                     <a href="" class="icon text-dark text-decoration-none" onClick={handleProfile}>
-                        <img src={user} alt="" />
+                        <img src={users} alt="" />
                         <span class="ms-3">Profile</span>
                     </a>
                 </div>

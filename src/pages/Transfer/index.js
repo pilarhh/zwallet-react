@@ -23,6 +23,7 @@ const Transfer = () => {
 
     const dispatch = useDispatch()
     const data = useSelector((state) => state.User)
+    
     const [searchParams, setSearchParams] = useSearchParams()
     const querySearch = searchParams.get('search')
 

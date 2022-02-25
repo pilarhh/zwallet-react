@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -23,7 +24,7 @@ const Login = () => {
     const [loading, setLoading] = useState(false)
 
     const dispatch = useDispatch()
-    const data = useSelector((state) => state.Register)
+    // const data = useSelector((state) => state.Register)
 
     const handleChange = (e) => {
         setForm({
@@ -34,20 +35,6 @@ const Login = () => {
 
     const handleClick = () => {
         dispatch(register({navigate, form}))
-        // setLoading(true)
-        // axios.post(`${process.env.REACT_APP_URL_BACKEND}/users/register`, {
-        //     username : form.username,
-        //     email: form.email,
-        //     password : form.password
-        // }).then((res) => {
-        //     setLoading(false)
-        //     const result = res.data
-        //     console.log(result)
-        //     navigate('/createpin')
-        // }).catch((err) => {
-        //     setLoading(false)
-        //     console.log(err.message)
-        // })
     }
 
     const handleLogin = () => {
