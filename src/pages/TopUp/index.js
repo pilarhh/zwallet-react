@@ -45,7 +45,7 @@ const TopUp = () => {
             <main class="flex-fill my-3">
                 <div class="container d-flex">
                     <Sidebar></Sidebar>
-                    <div class="content flex-fill shadow-sm rounded">
+                    <div class="content flex-fill shadow-sm rounded my-3">
                         <section class="p-3 ms-2">
                             <h4 class="d-none d-md-block fw-bold">Top Up</h4>
                             <p class="fw-lighter mt-4">

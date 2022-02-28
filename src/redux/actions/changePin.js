@@ -20,17 +20,17 @@ export const putPinFail = (error) => {
     }
 }
 
-export const changePin = (id, pin, navigate) => {
+export const changePin = ({form, id}) => {
     return (dispatch) => {
         dispatch(putPinRequest())
         return axios({
             method: 'PUT',
             url: `${process.env.REACT_APP_URL_BACKEND}/users/changepin/${id}`,
-            data: {pin: pin}
+            data: {pin: form}
         }).then((res) => {
             const data = res.data?.data
             dispatch(putPinSuccess(data))
-            navigate('/profile')
+            console.log(data);
         }).catch((err)=> {
             const message = err.message
             dispatch(putPinFail(message))

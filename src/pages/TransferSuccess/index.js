@@ -10,6 +10,7 @@ import share from '../../assets/img/share-2.svg'
 import download from '../../assets/img/download-blue.svg'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { getDetails } from '../../redux/actions/userDetail'
 import { getDetailWallet } from '../../redux/actions/walletDetail'
 
 const TransferInput = () => {
@@ -19,16 +20,20 @@ const TransferInput = () => {
     }
 
     const dispatch = useDispatch()
+    const user = JSON.parse(localStorage.getItem('user'))
+    const transfer = JSON.parse(localStorage.getItem('transfer'))
 
-    const balance = useSelector((state) => state.WalletDetail)
+    const balance = useSelector((state) => state.UserDetail)
 
     useEffect(() => {
-        dispatch(getDetailWallet(user.id))
+        dispatch(getDetails(user.id))
     }, [])
 
-    const user = JSON.parse(localStorage.getItem('user'))
-    const wallet = JSON.parse(localStorage.getItem('wallet'))
-    const transfer = JSON.parse(localStorage.getItem('transfer'))
+    const dataWallet = useSelector((state) => state.WalletDetail)
+  
+    useEffect(() => {
+      dispatch(getDetailWallet(transfer.id_receiver))
+    }, [])
 
     return (
         <div className='d-flex flex-column wrapper-home'>
@@ -36,7 +41,7 @@ const TransferInput = () => {
             <main class="flex-fill my-3">
                 <div class="container d-flex">
                     <Sidebar></Sidebar>
-                    <div class="content flex-fill shadow-sm rounded">
+                    <div class="content flex-fill shadow-sm rounded my-3">
                         <section class="p-1">
                             <div class="top text-center">
                                 <img src={success} alt="" />
@@ -76,13 +81,13 @@ const TransferInput = () => {
                                 </div>
                             </div>
                             <h4 class="fw-bold fs-5 ms-2 mt-4">Transfer To</h4>
-                            <figure class="d-flex ms-3 mt-4">
-                                <img src={samuel} alt="" />
+                            <figure class="d-flex ms-3 mt-4 shadow-sm p-2">
+                                <img src={samuel} alt="" height='65'/>
                                 <figcaption class="ms-3 lh-lg fw-bolder">
-                                    {wallet.username} <br></br> {wallet.phone_number}
+                                    {dataWallet?.data.username} <br></br> {dataWallet?.data.phone_number}
                                 </figcaption>
                             </figure>
-                            <div class="btn-desktop d-flex justify-content-end">
+                            <div class="btn-desktop d-flex justify-content-end mb-2 ">
                                 <Button class="btn btn-light border-0 d-none d-md-block">
                                     <img src={share} alt="" />
                                 </Button>
@@ -90,7 +95,7 @@ const TransferInput = () => {
                                     <img src={download} alt="" />
                                     <span class="text-primary ms-2">Download PDF</span>
                                 </Button>
-                                <Button class="btn btn-primary text-white mt-3 p-3 border-0 d-none d-md-block" onClick={handleContinue}>
+                                <Button class="btn btn-primary text-white p-3 border-0 d-none d-md-block" onClick={handleContinue}>
                                     Back to Home
                                 </Button>
                             </div>

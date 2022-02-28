@@ -28,7 +28,7 @@ export const getUsers = (querySearch) => {
         if(querySearch) {
             return axios({
                 method: 'GET',
-                url: `${process.env.REACT_APP_URL_BACKEND}/users?username=${querySearch}&limit=4`,
+                url: `${process.env.REACT_APP_URL_BACKEND}/users?username=${querySearch}`,
                 headers: {Authorization: `Bearer ${token}`}
             }).then((res) => {
                 const data = res.data?.data

@@ -26,18 +26,18 @@ const Balance = () => {
   }, [])
 
   return (
-    <div class="d-flex justify-content-between banner bg-primary p-3 mt-3">
-      <div class="col text-white">
+    <div class="d-flex justify-content-between rounded bg-primary p-3 mt-3">
+      <div class="col text-white mt-2">
         <p class="fw-lighter">Balance</p>
         <h2 class="fw-bold fs-2">Rp{balance?.data.balance}</h2>
-        <p class="fw-lighter mt-3">{user.phone_number}</p>
+        <p class="fw-lighter mt-3">{balance?.data.phone_number}</p>
       </div>
-      <div class="d-flex justify-content-between d-none d-md-block">
-        <Button class="btn rounded p-2 text-white border-white btn-transfer w-75" onClick={handleTransfer}>
+      <div class="d-flex justify-content-between d-none d-md-block mt-2">
+        <Button class="btn rounded-3 p-2 text-white border-white btn-transfer w-75" onClick={handleTransfer}>
           <img src={arrow2} alt="" />
           <span>Transfer</span>
         </Button>
-        <Button class="btn rounded p-2 text-white border-white btn-transfer w-75 mt-4" onClick={handleTopup}>
+        <Button class="btn rounded-3 p-2 text-white border-white btn-transfer w-75 mt-4" onClick={handleTopup}>
           <img src={plus2} alt="" />
           <span>Top Up</span>
         </Button>

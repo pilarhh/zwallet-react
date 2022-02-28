@@ -26,9 +26,17 @@
   background-size: cover;
 }
 
+.btn {
+  color: #88888F;
+}
+
 .btn:hover {
   background-color: #6379f4;
   color: #ffffff;
+}
+
+.amount:focus {
+  color: #6379f4;
 }
 
 .wrapper-home {
@@ -50,8 +58,8 @@
   height: 7%;
 }
 
-.banner {
-  border-radius: 25px;
+.rounded {
+  border-radius: 25px!important;
 }
 
 .text-primary {

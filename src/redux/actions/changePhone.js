@@ -20,7 +20,7 @@ export const putPhoneFail = (error) => {
     }
 }
 
-export const changePhone = (id, phone, navigate) => {
+export const changePhone = ({navigate, phone, id}) => {
     return (dispatch) => {
         dispatch(putPhoneRequest())
         return axios({

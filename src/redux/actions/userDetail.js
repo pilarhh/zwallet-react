@@ -30,9 +30,8 @@ export const getDetails = (id) => {
             const data = res.data?.data[0]
             dispatch(getDetailsSuccess(data))
             console.log(data);
-            localStorage.setItem('wallet', JSON.stringify(data))
         }).catch((err)=> {
-            const message = err.response.message
+            const message = err.response
             dispatch(getDetailsFail(message))
         })
     }

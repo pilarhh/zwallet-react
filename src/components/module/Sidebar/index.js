@@ -27,7 +27,7 @@ const Sidebar = () => {
         navigate(`/topup/${user.id}`)
     }
     return (
-        <div className='d-none d-md-flex flex-column justify-content-between p-3 sidebar me-3 shadow-sm rounded'>
+        <div className='d-none d-md-flex flex-column justify-content-between p-3 sidebar me-3 shadow-sm rounded my-3'>
             <div class="menu">
                 <div class="my-4">
                     <a href="" class="icon mb-4 text-dark text-decoration-none" onClick={handleHome}>

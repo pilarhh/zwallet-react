@@ -18,7 +18,7 @@ const TransferInput = () => {
             <main class="flex-fill my-3">
                 <div class="container d-flex">
                     <Sidebar></Sidebar>
-                    <div class="content flex-fill shadow-sm rounded">
+                    <div class="content flex-fill shadow-sm rounded my-3">
                         <section class="p-1">
                             <div class="top text-center">
                                 <img src={failed} alt="" />

@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -15,15 +16,17 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { userContext } from '../../context/UserContext'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUsers } from '../../redux/actions/users'
+import { getDetails } from '../../redux/actions/userDetail'
 
 
 const Transfer = () => {
     const navigate = useNavigate()
     const { user, setUser } = useContext(userContext)
+    const idUser = user.id
 
     const dispatch = useDispatch()
     const data = useSelector((state) => state.User)
-    
+
     const [searchParams, setSearchParams] = useSearchParams()
     const querySearch = searchParams.get('search')
 
@@ -33,9 +36,16 @@ const Transfer = () => {
 
     const handleSearch = (e) => {
         if (e.key === 'Enter') {
-            setSearchParams({search: e.target.value})
+            setSearchParams({ search: e.target.value })
         }
+        console.log(e.target.value);
     }
+
+    // const dataWallet = useSelector((state) => state.UserDetail)
+
+    // useEffect(() => {
+    //     dispatch(getDetails(idUser))
+    // }, [])
 
     return (
         <div className='d-flex flex-column wrapper-home'>
@@ -43,23 +53,25 @@ const Transfer = () => {
             <main class="flex-fill my-3">
                 <div class="container d-flex">
                     <Sidebar></Sidebar>
-                    <div class="d-flex flex-column content flex-fill shadow-sm rounded">
+                    <div class="d-flex flex-column content flex-fill shadow-sm rounded my-3">
                         <section class="p-3 ms-2">
                             <h4 class="d-none d-md-block fw-bold">Search Receiver</h4>
-                            <form class="rounded bg-light p-3 mt-4">
+                            <form class="rounded bg-light p-3 mt-3">
                                 <img src={search} alt="" />
-                                <Input class="w-75 border-0 ms-3 fw-lighter bg-light" type="text" placeholder="Search Receiver Here" onKeyUp={handleSearch}></Input>
+                                <Input class="w-75 border-0 ms-3 fw-lighter bg-light" type="text" placeholder="Search Receiver Here" onKeyUp={handleSearch} name="username"></Input>
                             </form>
-                            <div className='mt-3'>
+                            <div className='mt-4'>
                                 {data?.data.map((item) => {
-                                    return (
-                                        <figure class="d-flex text-decoration-none text-dark contacts" onClick={()=>navigate(`./input/${item.id}`)}>
-                                            <img class="samuel-icon" src={samuel} alt="" />
-                                            <figcaption class="lh-lg ms-4 fw-bolder">
-                                                {item.username} <br></br> {item.phone_number}
-                                            </figcaption>
-                                        </figure>
-                                    )
+                                    if (item.username !== data.data[0].username) {
+                                        return (
+                                            <figure class="d-flex text-decoration-none text-dark contacts shadow-sm p-2 rounded-3" onClick={() => navigate(`./input/${item.id}`)}>
+                                                <img class="samuel-icon" src={samuel} alt="" height='65' />
+                                                <figcaption class="lh-lg ms-4 fw-bolder">
+                                                    {item.username} <br></br> {item.phone_number}
+                                                </figcaption>
+                                            </figure>
+                                        )
+                                    }
                                 })}
                             </div>
                         </section>

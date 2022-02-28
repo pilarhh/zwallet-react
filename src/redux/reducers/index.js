@@ -9,6 +9,7 @@ import Transfer from './transfer'
 import TopUp from "./topUp"
 import WalletDetail from './walletDetail'
 import History from "./history"
+import ChangePicture from './changePicture'
 
 const rootReducers = combineReducers({
     User,
@@ -20,7 +21,8 @@ const rootReducers = combineReducers({
     Transfer,
     TopUp,
     WalletDetail,
-    History
+    History,
+    ChangePicture
 })
 
 export default rootReducers

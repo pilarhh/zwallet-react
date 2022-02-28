@@ -23,25 +23,8 @@ const Home = () => {
         <Sidebar></Sidebar>
         <div class="content flex-fill">
           <Balance></Balance>
-          {/* <div class="d-flex justify-content-between banner bg-primary p-3 mt-3">
-            <div class="col text-white">
-              <p class="fw-lighter">Balance</p>
-              <h2 class="fw-bold fs-2">Rp120.000</h2>
-              <p class="fw-lighter mt-3">+62 813-9387-7946</p>
-            </div>
-            <div class="d-flex justify-content-between d-none d-md-block">
-              <Button class="btn rounded p-2 text-white border-white btn-transfer w-75" onClick={handleTransfer}>
-                <img src={arrow2} alt="" />
-                <span>Transfer</span>
-              </Button>
-              <Button class="btn rounded p-2 text-white border-white btn-transfer w-75 mt-4">
-                <img src={plus2} alt="" />
-                <span>Top Up</span>
-              </Button>
-            </div>
-          </div> */}
-          <div class="row g-0 main-content mt-3">
-            <div class="d-none d-md-block col me-3 shadow-sm rounded">
+          <div class="row g-0 main-content my-3">
+            <div class="d-none d-md-block col me-3 shadow-sm rounded p-3">
               <div class="row g-0">
                 <div class="col">
                   <div class="income">
@@ -60,7 +43,7 @@ const Home = () => {
                 <img class="" height="250px" src={graphic} alt="" />
               </div>
             </div>
-            <section class="col shadow-sm rounded p-2">
+            <section class="col shadow-sm rounded p-3">
               <section class="d-flex justify-content-between">
                 <h5 class="transaction-title fw-bold">Transaction History</h5>
                 <p><a class="text-decoration-none" href="" onClick={handleClick}>See all</a></p>

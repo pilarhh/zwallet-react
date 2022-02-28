@@ -5,7 +5,6 @@ import { useNavigate, Link } from "react-router-dom"
 import Input from "../../components/base/Input"
 import Button from "../../components/base/Button"
 import RegisterLayout from "../../components/module/RegisterLeftBox/index"
-import '../../App.css'
 import mail from '../../assets/img/mail.svg'
 import lock from '../../assets/img/lock.svg'
 import { useDispatch, useSelector } from 'react-redux'
@@ -69,11 +68,11 @@ const Login = () => {
                     />
                 </div>
 
-                <p className="text-end mt-3 text-dark"><a href="" className="text-dark text-decoration-none">Forgot Password?</a></p>
-                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-100 mt-5">
+                <p className="text-end text-dark me-5"><a href="" className="text-dark text-decoration-none me-5">Forgot Password?</a></p>
+                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-75 mt-5 rounded-3 ms-4">
                     Login
                 </Button>
-                <p className="text-center mt-4">Don’t have an account? Let's <Link to="/Signup" className="text-decoration-none">Sign up</Link></p>
+                <p className="text-center me-5 mt-4">Don’t have an account? Let's <Link to="/Signup" className="text-decoration-none">Sign up</Link></p>
             </div>
         </div>
     )

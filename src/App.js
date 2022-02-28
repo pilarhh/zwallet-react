@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { io } from 'socket.io-client'
@@ -17,6 +18,7 @@ import PhoneNumber from "./pages/PhoneNumber";
 import ManagePhone from "./pages/ManagePhone"
 import ChangePin from "./pages/ChangePin"
 import TopUp from "./pages/TopUp";
+import ProfilePicture from "./pages/ProfilePicture";
 
 const App = () => {
 
@@ -89,6 +91,11 @@ const App = () => {
         <Route path="topup/:id" element={
           <RequireAuth>
             <TopUp />
+          </RequireAuth>
+        } />
+        <Route path="profilepicture" element={
+          <RequireAuth>
+            <ProfilePicture />
           </RequireAuth>
         } />
       </Routes>

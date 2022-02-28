@@ -7,22 +7,25 @@ import '../../App.css'
 import PinInput from "react-pin-input";
 import axios from 'axios'
 import { userContext } from '../../context/UserContext'
+import { useDispatch, useSelector } from 'react-redux'
+import { changePin } from '../../redux/actions/changePin'
 
 const CreatePin = () => {
-    const [form, setForm] = useState({
-        pin: ""
-    })
-    const handleChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value,
-        });
+    const [form, setForm] = useState(0)
+    const handleChange = (form) => {
+        setForm(form)
+        console.log(form);
     };
     const { user, setUser } = useContext(userContext)
+    const id = user.id
     const navigate = useNavigate()
-    const handleClick = () => {
+
+    const dispatch = useDispatch()
+    const data = useSelector((state) => state.ChangePin)
+
+    const handleContinue = () => {
+        dispatch(changePin({form, id}))
         navigate('/login')
-       
     }
 
     return (
@@ -42,6 +45,7 @@ const CreatePin = () => {
                 <PinInput
                     length={6}
                     initialValue=""
+                    onChange={handleChange}
                     type="numeric"
                     inputMode="number"
                     style={{ width: '80%' }}
@@ -51,7 +55,7 @@ const CreatePin = () => {
                     autoSelect={true}
                     regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
                 />
-                <Button onClick={handleClick} className="btn btn-light w-100 mt-5">
+                <Button onClick={handleContinue} className="btn btn-light w-100 mt-5">
                     Confirm
                 </Button>
             </div>

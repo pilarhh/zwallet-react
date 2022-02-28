@@ -88,11 +88,11 @@ const Login = () => {
                     />
                 </div>
 
-                <p className="text-end mt-3 text-dark"><a href="" className="text-dark text-decoration-none">Forgot Password?</a></p>
-                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-100 mt-5">
+                <p className="text-end text-dark me-5"><a href="" className="text-dark text-decoration-none me-5">Forgot Password?</a></p>
+                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-75 mt-5 rounded-3 ms-4">
                     Sign Up
                 </Button>
-                <p className="text-center mt-4">Already have an account? Let's <a href="" onClick={handleLogin} className="text-decoration-none">Log in</a></p>
+                <p className="text-center mt-4 me-5">Already have an account? Let's <a href="" onClick={handleLogin} className="text-decoration-none">Log in</a></p>
             </div>
         </div>
     )
