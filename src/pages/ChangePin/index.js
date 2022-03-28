@@ -9,29 +9,25 @@ import PinInput from 'react-pin-input'
 import "../../App.css"
 import { userContext } from '../../context/UserContext'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { changePin } from '../../redux/actions/changePin'
 
-const PhoneNumber = () => {
-    const [form, setForm] = useState({
-        pin: ""
-    })
-    const handleChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.pin]: e.target.form.pin,
-        });
+const ChangePin = () => {
+    const [form, setForm] = useState(0)
+    const handleChange = (form) => {
+        setForm(form)
+        console.log(form);
     };
     const { user, setUser } = useContext(userContext)
+    const id = user.id
     const navigate = useNavigate()
+
+    const dispatch = useDispatch()
+    const data = useSelector((state) => state.ChangePin)
+
     const handleContinue = () => {
-        axios.put(`${process.env.REACT_APP_URL_BACKEND}/users/changepin/${user.id}`, {
-            pin: form.pin
-        }).then((res) => {
-            const result = res.data
-            console.log(result)
-            navigate('/profile')
-        }).catch((err) => {
-            console.log(err.message)
-        })
+        dispatch(changePin({form, id}))
+        navigate('/profile')
     }
 
     return (
@@ -40,7 +36,7 @@ const PhoneNumber = () => {
             <main class="flex-fill my-3">
                 <div class="container d-flex">
                     <Sidebar></Sidebar>
-                    <div class="content flex-fill shadow-sm rounded">
+                    <div class="content flex-fill shadow-sm rounded my-3">
                         <section class="p-3 ms-2">
                             <h4 class="d-none d-md-block fw-bold">Change Pin</h4>
                             <p class="fw-lighter mt-4">
@@ -60,8 +56,10 @@ const PhoneNumber = () => {
                                     onComplete={(value, index) => { }}
                                     autoSelect={true}
                                     regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
+                                    name="pin"
+                                    value={form.pin}
                                 />
-                                <Button class="btn btn-light mt-3 p-2 border-0 w-50 mt-5 text-secondary" onClick={handleContinue}>
+                                <Button class="btn btn-light mt-3 p-2 border-0 w-50 mt-5" onClick={handleContinue}>
                                     Continue
                                 </Button>
                             </div>
@@ -74,4 +72,4 @@ const PhoneNumber = () => {
     )
 }
 
-export default PhoneNumber
+export default ChangePin

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -8,7 +9,9 @@ import '../../App.css'
 import mail from '../../assets/img/mail.svg'
 import lock from '../../assets/img/lock.svg'
 import person from '../../assets/img/person.svg'
-import axios from "axios"
+// import axios from "axios"
+import { useDispatch, useSelector } from 'react-redux'
+import { register } from "../../redux/actions/register"
 
 
 const Login = () => {
@@ -20,6 +23,9 @@ const Login = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
 
+    const dispatch = useDispatch()
+    // const data = useSelector((state) => state.Register)
+
     const handleChange = (e) => {
         setForm({
             ...form,
@@ -28,20 +34,7 @@ const Login = () => {
     };
 
     const handleClick = () => {
-        setLoading(true)
-        axios.post(`${process.env.REACT_APP_URL_BACKEND}/users/register`, {
-            username : form.username,
-            email: form.email,
-            password : form.password
-        }).then((res) => {
-            setLoading(false)
-            const result = res.data
-            console.log(result)
-            navigate('/createpin')
-        }).catch((err) => {
-            setLoading(false)
-            console.log(err.message)
-        })
+        dispatch(register({navigate, form}))
     }
 
     const handleLogin = () => {
@@ -95,11 +88,11 @@ const Login = () => {
                     />
                 </div>
 
-                <p className="text-end mt-3 text-dark"><a href="" className="text-dark text-decoration-none">Forgot Password?</a></p>
-                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-100 mt-5">
+                <p className="text-end text-dark me-5"><a href="" className="text-dark text-decoration-none me-5">Forgot Password?</a></p>
+                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-75 mt-5 rounded-3 ms-4">
                     Sign Up
                 </Button>
-                <p className="text-center mt-4">Already have an account? Let's <a href="" onClick={handleLogin} className="text-decoration-none">Log in</a></p>
+                <p className="text-center mt-4 me-5">Already have an account? Let's <a href="" onClick={handleLogin} className="text-decoration-none">Log in</a></p>
             </div>
         </div>
     )

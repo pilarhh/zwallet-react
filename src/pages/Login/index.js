@@ -1,13 +1,14 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import Input from "../../components/base/Input"
 import Button from "../../components/base/Button"
 import RegisterLayout from "../../components/module/RegisterLeftBox/index"
-import '../../App.css'
 import mail from '../../assets/img/mail.svg'
 import lock from '../../assets/img/lock.svg'
-import axios from "axios"
+import { useDispatch, useSelector } from 'react-redux'
+import { login } from "../../redux/actions/login"
 
 
 const Login = () => {
@@ -17,6 +18,7 @@ const Login = () => {
     })
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         setForm({
@@ -26,39 +28,8 @@ const Login = () => {
     };
 
     const handleClick = () => {
-        setLoading(true)
-        axios.post(`${process.env.REACT_APP_URL_BACKEND}/users/login`,
-            {
-                email: form.email,
-                password: form.password
-            })
-            .then((res) => {
-
-                setLoading(false)
-                const result = res.data.data
-                console.log(result);
-                localStorage.setItem('auth', "1")
-                localStorage.setItem('user', JSON.stringify(result))
-                navigate('/')
-            })
-            .catch((err) => {
-                setLoading(false)
-                console.log(err.response);
-            })
-        // if (form.email === 'pilarh@gmail.com' && form.password === "ppppp") {
-        //     const profile = {
-        //         name: 'Pilar H',
-        //         email: form.email
-        //     }
-        //     navigate('/')
-        //     localStorage.setItem('profile', JSON.stringify(profile))
-        //     localStorage.setItem('auth', "1")
-        // } else {
-        //     alert("your email or password is wrong")
-        // }
+        dispatch(login({navigate, form}))
     }
-
-    
 
     return (
         <div className="row">
@@ -97,11 +68,11 @@ const Login = () => {
                     />
                 </div>
 
-                <p className="text-end mt-3 text-dark"><a href="" className="text-dark text-decoration-none">Forgot Password?</a></p>
-                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-100 mt-5">
+                <p className="text-end text-dark me-5"><a href="" className="text-dark text-decoration-none me-5">Forgot Password?</a></p>
+                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-75 mt-5 rounded-3 ms-4">
                     Login
                 </Button>
-                <p className="text-center mt-4">Don’t have an account? Let's <Link to="/Signup" className="text-decoration-none">Sign up</Link></p>
+                <p className="text-center me-5 mt-4">Don’t have an account? Let's <Link to="/Signup" className="text-decoration-none">Sign up</Link></p>
             </div>
         </div>
     )

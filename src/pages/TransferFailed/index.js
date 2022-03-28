@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 const TransferInput = () => {
     const navigate = useNavigate()
     const handleContinue = () => {
-        navigate('/transfer/success')
+        navigate('/transfer')
     }
     return (
         <div className='d-flex flex-column wrapper-home'>
@@ -18,7 +18,7 @@ const TransferInput = () => {
             <main class="flex-fill my-3">
                 <div class="container d-flex">
                     <Sidebar></Sidebar>
-                    <div class="content flex-fill shadow-sm rounded">
+                    <div class="content flex-fill shadow-sm rounded my-3">
                         <section class="p-1">
                             <div class="top text-center">
                                 <img src={failed} alt="" />
@@ -61,7 +61,7 @@ const TransferInput = () => {
                             <h4 class="fw-bold fs-5 ms-2 mt-4">Transfer To</h4>
                             <figure class="d-flex ms-3 mt-4">
                                 <img src={samuel} alt="" />
-                                <figcaption class="ms-3 1h-base">
+                                <figcaption class="ms-3 lh-lg fw-bolder">
                                     Samuel Suhi <br></br> +62 813-8492-9994
                                 </figcaption>
                             </figure>

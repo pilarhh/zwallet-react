@@ -1,26 +1,46 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react'
 import Navbar from '../../components/module/Navbar'
 import Sidebar from '../../components/module/Sidebar'
 import Footer from '../../components/module/Footer'
 import Button from "../../components/base/Button"
-import samuel from '../../assets/img/samuel1.png'
 import success from '../../assets/img/success.svg'
 import share from '../../assets/img/share-2.svg'
 import download from '../../assets/img/download-blue.svg'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getDetails } from '../../redux/actions/userDetail'
+import { getDetailWallet } from '../../redux/actions/walletDetail'
 
 const TransferInput = () => {
     const navigate = useNavigate()
     const handleContinue = () => {
         navigate('/')
     }
+
+    const dispatch = useDispatch()
+    const user = JSON.parse(localStorage.getItem('user'))
+    const transfer = JSON.parse(localStorage.getItem('transfer'))
+
+    const balance = useSelector((state) => state.UserDetail)
+
+    useEffect(() => {
+        dispatch(getDetails(user.id))
+    }, [])
+
+    const dataWallet = useSelector((state) => state.WalletDetail)
+  
+    useEffect(() => {
+      dispatch(getDetailWallet(transfer.id_receiver))
+    }, [])
+
     return (
         <div className='d-flex flex-column wrapper-home'>
             <Navbar></Navbar>
             <main class="flex-fill my-3">
                 <div class="container d-flex">
                     <Sidebar></Sidebar>
-                    <div class="content flex-fill shadow-sm rounded">
+                    <div class="content flex-fill shadow-sm rounded my-3">
                         <section class="p-1">
                             <div class="top text-center">
                                 <img src={success} alt="" />
@@ -32,7 +52,7 @@ const TransferInput = () => {
                                     Amount
                                 </div>
                                 <div class="fw-bold ms-3 mt-2">
-                                    Rp 100.000
+                                    Rp{transfer.amount}
                                 </div>
                             </div>
                             <div class="ms-2 mt-4">
@@ -40,7 +60,7 @@ const TransferInput = () => {
                                     Balance Left
                                 </div>
                                 <div class="fw-bold ms-3 mt-2">
-                                    Rp 20.000
+                                    Rp{balance?.data.balance}
                                 </div>
                             </div>
                             <div class="ms-2 mt-4">
@@ -48,7 +68,7 @@ const TransferInput = () => {
                                     Date & Time
                                 </div>
                                 <div class="fw-bold ms-3 mt-2">
-                                    May 11, 2020 - 12.20
+                                    {transfer.date}
                                 </div>
                             </div>
                             <div class="ms-2 mt-4">
@@ -56,17 +76,17 @@ const TransferInput = () => {
                                     Notes
                                 </div>
                                 <div class="fw-bold ms-3 mt-2">
-                                    For buying some socks
+                                    {transfer.notes}
                                 </div>
                             </div>
                             <h4 class="fw-bold fs-5 ms-2 mt-4">Transfer To</h4>
-                            <figure class="d-flex ms-3 mt-4">
-                                <img src={samuel} alt="" />
-                                <figcaption class="ms-3 1h-base">
-                                    Samuel Suhi <br></br> +62 813-8492-9994
+                            <figure class="d-flex ms-3 mt-4 shadow-sm p-2">
+                                <img className='rounded-3' src={dataWallet?.data.profile_picture} alt="" height='65' width='65'/>
+                                <figcaption class="ms-3 lh-lg fw-bolder">
+                                    {dataWallet?.data.username} <br></br> {dataWallet?.data.phone_number}
                                 </figcaption>
                             </figure>
-                            <div class="btn-desktop d-flex justify-content-end">
+                            <div class="btn-desktop d-flex justify-content-end mb-2 ">
                                 <Button class="btn btn-light border-0 d-none d-md-block">
                                     <img src={share} alt="" />
                                 </Button>
@@ -74,7 +94,7 @@ const TransferInput = () => {
                                     <img src={download} alt="" />
                                     <span class="text-primary ms-2">Download PDF</span>
                                 </Button>
-                                <Button class="btn btn-primary text-white mt-3 p-3 border-0 d-none d-md-block" onClick={handleContinue}>
+                                <Button class="btn btn-primary text-white p-3 border-0 d-none d-md-block" onClick={handleContinue}>
                                     Back to Home
                                 </Button>
                             </div>

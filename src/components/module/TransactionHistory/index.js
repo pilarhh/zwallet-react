@@ -1,89 +1,43 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react'
-import samuel from '../../../assets/img/samuel.svg'
-// import netflix from '../../../assets/img/netflix.svg'
-// import christine from '../../../assets/img/christine.svg'
-// import adobe from '../../../assets/img/adobe.svg'
+import React, { useEffect } from 'react'
+import { getHistory } from '../../../redux/actions/history'
+import { useDispatch, useSelector } from 'react-redux'
 
 const TransactionHistory = () => {
-    const [state, setState] = useState([{
-        name: "Samuel Suhi",
-        desc: "Transfer",
-        amount: "+Rp50.000"
-    },
-    {
-        name: "Netflix",
-        desc: "Subscription",
-        amount: "+Rp100.000"
-    },
-    {
-        name: "Disney+",
-        desc: "Transfer",
-        amount: "+Rp500.000"
-    }])
+    const data = useSelector((state) => state.History)
+    const dispatch = useDispatch()
+    const user = JSON.parse(localStorage.getItem('user'))
+    const id = user.id
 
-    useEffect(()=>{
-        if (state) {
-            setState([...state, {
-                name: "WeTV",
-                desc: "Subscription",
-                amount: "+Rp20.000"
-            }])
-        }
-    },[])
+    useEffect(() => {
+        dispatch(getHistory(id))
+    }, [])
+
+    const colors = (type) => {
+        if (type === "Transfer") return 'red'
+        else return 'green'
+    }
+
+    const detail = (type) => {
+        if (type === "Transfer") return '-'
+        else return '+'
+    }
 
     return (
         <div class="col mt-3">
-            {state.map((state) => {
+            {data?.data.map((item) => {
                 return (
                     <figure class="d-flex justify-content-between">
                         <div class="img-caption d-flex">
-                            <img class="samuel-icon" src={samuel} alt="" />
-                            <figcaption class="ms-4 1h-base">
-                                {state.name}<br></br>{state.desc}
+                            <img class="" src={item.profile_picture} alt="" height='65' width='65' />
+                            <figcaption class="ms-4 lh-lg ">
+                                user <br></br><span className='fw-bolder'>{item.type}</span>
                             </figcaption>
                         </div>
-                        <figcaption class="text-success fw-bold">{state.amount}</figcaption>
+                        <figcaption class="fw-bold mt-3" style={{ color: colors(item.type) }}>{detail(item.type) ? detail(item.type) : item.amount}Rp{item.amount}</figcaption>
                     </figure>
                 )
             })}
-
-            {/* <figure class="d-flex justify-content-between">
-                <div class="img-caption d-flex">
-                    <img class="samuel-icon" src={samuel} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                        Samuel Suhi<br></br>Transfer
-                    </figcaption>
-                </div>
-                <figcaption class="text-success fw-bold">+Rp50.000</figcaption>
-            </figure>
-            <figure class="d-flex justify-content-between">
-                <div class="d-flex">
-                    <img class="samuel-icon" src={netflix} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                        Netflix<br></br>Subscription
-                    </figcaption>
-                </div>
-                <figcaption class="text-danger fw-bold">-Rp149.000</figcaption>
-            </figure>
-            <figure class="d-flex justify-content-between">
-                <div class="d-flex">
-                    <img class="samuel-icon" src={christine} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                        Christine Mar...<br></br>Transfer
-                    </figcaption>
-                </div>
-                <figcaption class="text-success fw-bold">+Rp150.000</figcaption>
-            </figure>
-            <figure class="d-flex justify-content-between">
-                <div class="d-flex">
-                    <img class="samuel-icon" src={adobe} alt="" />
-                    <figcaption class="ms-4 1h-base">
-                        Adobe Inc.<br></br>Subscription
-                    </figcaption>
-                </div>
-                <figcaption class="text-danger fw-bold">-Rp249.000</figcaption>
-            </figure> */}
         </div>
     )
 }

@@ -1,5 +1,7 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { io } from 'socket.io-client'
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home"
@@ -15,8 +17,16 @@ import CreatePin from "./pages/CreatePin";
 import PhoneNumber from "./pages/PhoneNumber";
 import ManagePhone from "./pages/ManagePhone"
 import ChangePin from "./pages/ChangePin"
+import TopUp from "./pages/TopUp";
+import ProfilePicture from "./pages/ProfilePicture";
 
 const App = () => {
+
+  useEffect(() => {
+    const socket = io('http://localhost:4000')
+    console.log(socket);
+  })
+
   return (
     <BrowserRouter>
       <Routes>
@@ -76,6 +86,16 @@ const App = () => {
         <Route path="managephone" element={
           <RequireAuth>
             <ManagePhone />
+          </RequireAuth>
+        } />
+        <Route path="topup/:id" element={
+          <RequireAuth>
+            <TopUp />
+          </RequireAuth>
+        } />
+        <Route path="profilepicture" element={
+          <RequireAuth>
+            <ProfilePicture />
           </RequireAuth>
         } />
       </Routes>

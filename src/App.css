@@ -6,6 +6,18 @@
   outline: none;
 }
 
+.blue-focus {
+  color: #6379f4;
+}
+
+body {
+  background-color:  #fafcff;
+}
+
+.content {
+  background-color: #FFFFFF;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap');
 
 .text-success {
@@ -24,6 +36,10 @@
   background: url(./assets/img/Mask\ Group.svg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.btn {
+  color: #88888F;
 }
 
 .btn:hover {
@@ -50,8 +66,8 @@
   height: 7%;
 }
 
-.banner {
-  border-radius: 25px;
+.rounded {
+  border-radius: 25px!important;
 }
 
 .text-primary {
@@ -109,4 +125,17 @@
 
 .pincode-input-text:focus {
   border: 1px solid #6379F4!important;
+}
+
+.contacts {
+  cursor: pointer;
+}
+
+.icon {
+  color: black;
+}
+
+.icon:hover {
+  border-left: 3px solid #6379f4;
+  color: #6379f4 !important;
 }
