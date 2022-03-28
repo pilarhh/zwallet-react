@@ -35,11 +35,11 @@ const Balance = () => {
       <div class="d-flex justify-content-between d-none d-md-block mt-2">
         <Button class="btn rounded-3 p-2 text-white border-white btn-transfer w-75" onClick={handleTransfer}>
           <img src={arrow2} alt="" />
-          <span>Transfer</span>
+          <span className='ms-2'>Transfer</span>
         </Button>
         <Button class="btn rounded-3 p-2 text-white border-white btn-transfer w-75 mt-4" onClick={handleTopup}>
           <img src={plus2} alt="" />
-          <span>Top Up</span>
+          <span className='ms-2'>Top Up</span>
         </Button>
       </div>
     </div>

@@ -61,9 +61,9 @@ const changeProfilePicture = () => {
                             <form encType="multipart/form-data" onSubmit={handleContinue} className="d-flex flex-column">
                                 <input type="file" name="file" id="file" onChange={handleChange}/>
                                 {form.profile_picture ? (
-                                    <img className="mt-3" src={URL.createObjectURL(form.profile_picture)} alt="" height='80' width='80'/>
+                                    <img className="mt-3 rounded-3" src={URL.createObjectURL(form.profile_picture)} alt="" height='80' width='80'/>
                                 ) : (
-                                    <img className="d-flex justify-content-center mt-3" src={data?.data.profile_picture} alt="" height='80' width='80'/>
+                                    <img className="mt-3 rounded-3" src={data?.data.profile_picture} alt="" height='80' width='80'/>
                                 )}
                                 <Button isLoading={loading} className="btn btn-primary text-white mt-3 p-2 border-0 mb-3 w-100" type="submit">Continue</Button>
                             </form>

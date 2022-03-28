@@ -65,9 +65,9 @@ const Transfer = () => {
                                     if (item.username !== data.data[0].username) {
                                         return (
                                             <figure class="d-flex text-decoration-none text-dark contacts shadow-sm p-2 rounded-3" onClick={() => navigate(`./input/${item.id}`)}>
-                                                <img class="samuel-icon" src={samuel} alt="" height='65' />
-                                                <figcaption class="lh-lg ms-4 fw-bolder">
-                                                    {item.username} <br></br> {item.phone_number}
+                                                <img class="samuel-icon rounded-3" src={item.profile_picture} alt="" height='65' width='65' />
+                                                <figcaption class="lh-lg ms-4">
+                                                    {item.username} <br></br><span className='fw-bolder'>{item.phone_number}</span>
                                                 </figcaption>
                                             </figure>
                                         )

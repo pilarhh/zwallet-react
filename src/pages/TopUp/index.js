@@ -53,7 +53,7 @@ const TopUp = () => {
                                 press continue to the next steps.
                             </p>
                             <div class="mt-4 text-center">
-                                <Input class="border-0 text-center fs-2" type="number" placeholder="0.00" name="amount" value={form.amount} onChange={handleChange}></Input>
+                                <Input class="blue-focus border-0 text-center fs-2" type="number" placeholder="0.00" name="amount" value={form.amount} onChange={handleChange}></Input>
                                 <p class="fw-bold my-4">Balance: Rp{balance?.data.balance}</p>
                             </div>
                             <Button class="btn btn-primary text-white mt-3 p-2 border-0 float-end d-none d-md-block mb-3" onClick={handleContinue}>

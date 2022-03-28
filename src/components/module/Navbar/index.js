@@ -45,7 +45,7 @@ const Navbar = () => {
     })
 
     const pic = (type) => {
-        if (type === 'Transfer') {
+        if (type === 'Top up') {
             return require('../../../assets/img/arrow-down-green.svg').default
         } else {
             return require('../../../assets/img/arrow-up-red.svg').default
@@ -53,7 +53,7 @@ const Navbar = () => {
     }
     
     return (
-        <div className='header d-flex justify-content-between p-4 d-none d-md-flex shadow-sm'>
+        <div className='header d-flex justify-content-between p-4 d-none d-md-flex shadow-sm bg-white'>
             <div class="d-none d-md-block brand text-primary fw-bold mt-3 ms-5">Zwallet</div>
             <div class="navbar me-5">
                 <img className='rounded-3' src={data?.data.profile_picture} alt="" height='60'width='60'/>

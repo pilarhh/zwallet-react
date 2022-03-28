@@ -4,7 +4,6 @@ import Navbar from '../../components/module/Navbar'
 import Sidebar from '../../components/module/Sidebar'
 import Footer from '../../components/module/Footer'
 import Button from "../../components/base/Button"
-import samuel from '../../assets/img/samuel1.png'
 import success from '../../assets/img/success.svg'
 import share from '../../assets/img/share-2.svg'
 import download from '../../assets/img/download-blue.svg'
@@ -82,7 +81,7 @@ const TransferInput = () => {
                             </div>
                             <h4 class="fw-bold fs-5 ms-2 mt-4">Transfer To</h4>
                             <figure class="d-flex ms-3 mt-4 shadow-sm p-2">
-                                <img src={samuel} alt="" height='65'/>
+                                <img className='rounded-3' src={dataWallet?.data.profile_picture} alt="" height='65' width='65'/>
                                 <figcaption class="ms-3 lh-lg fw-bolder">
                                     {dataWallet?.data.username} <br></br> {dataWallet?.data.phone_number}
                                 </figcaption>

@@ -10,6 +10,8 @@ import TopUp from "./topUp"
 import WalletDetail from './walletDetail'
 import History from "./history"
 import ChangePicture from './changePicture'
+import Income from './income'
+import Expense from './expense'
 
 const rootReducers = combineReducers({
     User,
@@ -22,7 +24,9 @@ const rootReducers = combineReducers({
     TopUp,
     WalletDetail,
     History,
-    ChangePicture
+    ChangePicture,
+    Income,
+    Expense
 })
 
 export default rootReducers

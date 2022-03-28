@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
-import samuel from '../../../assets/img/samuel.svg'
 import { getHistory } from '../../../redux/actions/history'
 import { useDispatch, useSelector } from 'react-redux'
 
 const TransactionHistory = () => {
     const data = useSelector((state) => state.History)
     const dispatch = useDispatch()
+    const user = JSON.parse(localStorage.getItem('user'))
+    const id = user.id
 
     useEffect(() => {
-        dispatch(getHistory())
+        dispatch(getHistory(id))
     }, [])
 
     const colors = (type) => {
@@ -28,12 +29,12 @@ const TransactionHistory = () => {
                 return (
                     <figure class="d-flex justify-content-between">
                         <div class="img-caption d-flex">
-                            <img class="" src={samuel} alt="" height='65' width='65' />
-                            <figcaption class="ms-4 lh-lg fw-bolder">
-                                user <br></br>{item.type}
+                            <img class="" src={item.profile_picture} alt="" height='65' width='65' />
+                            <figcaption class="ms-4 lh-lg ">
+                                user <br></br><span className='fw-bolder'>{item.type}</span>
                             </figcaption>
                         </div>
-                        <figcaption class="fw-bold mt-3" style={{ color: colors(item.type) }}>{detail(item.type) ? detail(item.type) : item.amount}{item.amount}</figcaption>
+                        <figcaption class="fw-bold mt-3" style={{ color: colors(item.type) }}>{detail(item.type) ? detail(item.type) : item.amount}Rp{item.amount}</figcaption>
                     </figure>
                 )
             })}

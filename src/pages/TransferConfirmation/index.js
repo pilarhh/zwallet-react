@@ -56,7 +56,7 @@ const TransferConfirmation = () => {
                         <section class="p-1">
                             <h4 class="fw-bold fs-5 ms-2 mt-4">Transfer To</h4>
                             <figure class="d-flex ms-3 mt-3 shadow-sm p-2">
-                                <img src={samuel} alt="" height='65'/>
+                                <img className='rounded-3' src={dataWallet.data.profile_picture} alt="" height='65' width='65'/>
                                 <figcaption class="ms-3 lh-lg fw-bolder">
                                     {dataWallet.data.username} <br></br> {dataWallet.data.phone_number}
                                 </figcaption>

@@ -20,12 +20,12 @@ export const getHistoryFail = (error) => {
     }
 }
 
-export const getHistory = () => {
+export const getHistory = (id) => {
     return (dispatch) => {
         dispatch(getHistoryRequest())
         return axios({
             method: 'GET',
-            url: `${process.env.REACT_APP_URL_BACKEND}/transaction`
+            url: `${process.env.REACT_APP_URL_BACKEND}/transaction/${id}`
         }).then((res) => {
             const data = res.data?.data
             dispatch(getHistorySuccess(data))

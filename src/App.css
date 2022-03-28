@@ -6,6 +6,18 @@
   outline: none;
 }
 
+.blue-focus {
+  color: #6379f4;
+}
+
+body {
+  background-color:  #fafcff;
+}
+
+.content {
+  background-color: #FFFFFF;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap');
 
 .text-success {
@@ -33,10 +45,6 @@
 .btn:hover {
   background-color: #6379f4;
   color: #ffffff;
-}
-
-.amount:focus {
-  color: #6379f4;
 }
 
 .wrapper-home {
@@ -121,4 +129,13 @@
 
 .contacts {
   cursor: pointer;
+}
+
+.icon {
+  color: black;
+}
+
+.icon:hover {
+  border-left: 3px solid #6379f4;
+  color: #6379f4 !important;
 }

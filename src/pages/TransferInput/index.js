@@ -64,7 +64,7 @@ const TransferInput = () => {
                             <h4 class="d-none d-md-block fw-bold">Transfer Money</h4>
                             <div class="history-list mt-4">
                                 <figure class="d-flex shadow-sm p-2">
-                                    <img class="samuel-icon" src={samuel} alt="" height='65'/>
+                                    <img class="samuel-icon rounded-3" src={dataWallet.data.profile_picture} alt="" height='65' width='65'/>
                                     <figcaption class="lh-lg ms-4 fw-bolder">
                                         {dataWallet.data.username} <br></br> {dataWallet.data.phone_number}
                                     </figcaption>
@@ -75,11 +75,11 @@ const TransferInput = () => {
                                 press continue to the next steps.
                             </p>
                             <div class="mt-4 text-center">
-                                <Input class="border-0 text-center fs-2 amount fw-bolder" type="number" placeholder="0.00" name="amount" value={form.amount} onChange={handleChange}></Input>
+                                <Input class="blue-focus border-0 text-center fs-2 amount fw-bolder" type="number" placeholder="0.00" name="amount" value={form.amount} onChange={handleChange}></Input>
                                 <p class="fw-bold my-4">Rp{data?.data.balance} Available</p>
                                 <div class="form">
                                     <img src={pencil} alt="" />
-                                    <Input class="border-0 border-bottom w-50 ms-2" type="text" placeholder="Add some notes" name="notes" value={form.notes} onChange={handleChange}></Input>
+                                    <Input class="blue-focus border-0 border-bottom w-50 ms-2" type="text" placeholder="Add some notes" name="notes" value={form.notes} onChange={handleChange}></Input>
                                 </div>
                             </div>
                             <Button class="btn btn-primary text-white mt-3 p-2 border-0 float-end d-none d-md-block mb-3 me-2" onClick={handleContinue}>
