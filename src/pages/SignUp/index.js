@@ -44,7 +44,7 @@ const Login = () => {
     return (
         <div className="row">
             <RegisterLeftBox />
-            <div className="col px-5">
+            <div className="col px-5 bg-white">
                 <h1 className="text-primary mt-4 d-md-none text-center p-5 fw-bold">Zwallet</h1>
                 <h2 className="pt-5 w-75 d-none d-md-block fw-bold">Start Accessing Banking Needs
                     With All Devices and All Platforms

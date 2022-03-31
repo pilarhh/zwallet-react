@@ -60,8 +60,8 @@ console.log(dataExpense);
                   <h6 class="fw-bold">{dataExpense.data.amount}</h6>
                 </div>
               </div>
-              <div class="row g-0 justify-content-center">
-                <img class="" height="250px" src={graphic} alt="" />
+              <div class="row g-0 text-center">
+                <img class="" src={graphic} alt="" height="250" width='100'/>
               </div>
             </div>
             <section class="col shadow-sm rounded p-3 bg-white">

@@ -29,9 +29,9 @@ const TransactionHistory = () => {
                 return (
                     <figure class="d-flex justify-content-between">
                         <div class="img-caption d-flex">
-                            <img class="" src={item.profile_picture} alt="" height='65' width='65' />
+                            <img class="rounded-3" src={item.receiver_pic} alt="" height='65' width='65' />
                             <figcaption class="ms-4 lh-lg ">
-                                user <br></br><span className='fw-bolder'>{item.type}</span>
+                                {item.receiver} <br></br><span className='fw-bolder'>{item.type}</span>
                             </figcaption>
                         </div>
                         <figcaption class="fw-bold mt-3" style={{ color: colors(item.type) }}>{detail(item.type) ? detail(item.type) : item.amount}Rp{item.amount}</figcaption>

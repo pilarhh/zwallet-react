@@ -12,6 +12,7 @@
 
 body {
   background-color:  #fafcff;
+  overflow-x: hidden;
 }
 
 .content {
@@ -30,6 +31,7 @@ body {
 
 /* .row {
   height: 100vh;
+  overflow-y: hidden;
 } */
 
 .col.left {
@@ -135,7 +137,7 @@ body {
   color: black;
 }
 
-.icon:hover {
+.menu:hover {
   border-left: 3px solid #6379f4;
   color: #6379f4 !important;
 }
