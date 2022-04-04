@@ -25,7 +25,7 @@ export const login = ({ form, navigate }) => {
         dispatch(loginRequest())
         return axios({
             method: 'POST',
-            url: `${process.env.REACT_APP_URL_BACKEND}/users/login`,
+            url: `http://localhost:4000/users/login`,
             data: {
                 email: form.email,
                 password: form.password
@@ -37,8 +37,9 @@ export const login = ({ form, navigate }) => {
             localStorage.setItem('user', JSON.stringify(data))
             navigate('/')
         }).catch((err) => {
-            const message = err.message
+            const message = err.response
             dispatch(loginFail(message))
+            console.log(message);
         })
     }
 }
