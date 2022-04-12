@@ -22,10 +22,10 @@ import ProfilePicture from "./pages/ProfilePicture";
 
 const App = () => {
 
-  // useEffect(() => {
-  //   const socket = io('http://localhost:4000')
-  //   console.log(socket);
-  // })
+  useEffect(() => {
+    const socket = io('http://localhost:4000')
+    console.log(socket);
+  })
 
   return (
     <BrowserRouter>
