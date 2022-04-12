@@ -31,6 +31,8 @@ const Login = () => {
         dispatch(login({navigate, form}))
     }
 
+    const enabled = form.email.length > 0 && form.password.length > 0
+
     return (
         <div className="row">
             <RegisterLayout />
@@ -69,7 +71,7 @@ const Login = () => {
                 </div>
 
                 <p className="text-end text-dark me-5"><a href="" className="text-dark text-decoration-none me-5">Forgot Password?</a></p>
-                <Button isLoading={loading} onClick={handleClick} className="btn btn-light w-75 mt-5 rounded-3 ms-4">
+                <Button isLoading={loading} onClick={handleClick} disabled={!enabled} className="btn btn-light w-75 mt-5 rounded-3 ms-4">
                     Login
                 </Button>
                 <p className="text-center me-5 mt-4">Don’t have an account? Let's <Link to="/Signup" className="text-decoration-none">Sign up</Link></p>

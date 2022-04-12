@@ -1,11 +1,13 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useState } from 'react'
 import grid from '../../../assets/img/grid.svg'
 import arrow from '../../../assets/img/arrow-up.svg'
 import plus from '../../../assets/img/plus.svg'
 import users from '../../../assets/img/user.svg'
 import logout from '../../../assets/img/log-out.svg'
 import { useNavigate } from 'react-router-dom'
+import Button from '../../base/Button'
 
 const Sidebar = () => {
     const navigate = useNavigate()
@@ -26,6 +28,7 @@ const Sidebar = () => {
     const handleTopup = () => {
         navigate(`/topup/${user.id}`)
     }
+
     return (
         <div className='d-none d-md-flex flex-column justify-content-between p-3 sidebar me-3 shadow-sm rounded my-3 bg-white'>
             <div class="">

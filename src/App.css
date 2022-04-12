@@ -40,11 +40,11 @@ body {
   background-size: cover;
 }
 
-.btn {
+/* .btn {
   color: #88888F;
-}
+} */
 
-.btn:hover {
+.btn, .btn:hover {
   background-color: #6379f4;
   color: #ffffff;
 }
