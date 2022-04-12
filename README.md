@@ -36,7 +36,7 @@ In this repository, I used bootstrap framework to make the slicing contents base
 ### React JS
 ### Express JS
 
-Check out the backend repository for this project using Express JS [API](https://github.com/pilarhh/backend-zwallet.git)
+Check out the backend repository for this project using Express JS: [Zwallet API](https://github.com/pilarhh/backend-zwallet.git)
 
 
 ## Snippets
@@ -44,8 +44,8 @@ Check out the backend repository for this project using Express JS [API](https:/
 ### Desktop Layout:
 ![Login](./src/assets/img/localhost_3000_login.png)
 ![Home](./src/assets/img/localhost_3000_.png)
-![Transfer]('./src/assets/img/localhost_3000_transfer_input_29585913-d305-4cf6-b3da-04d13825d28a.png)
-![Success]('./src/assets/img/zwallet-pilar.netlify.app_transfer_success.png)
+![Transfer](./src/assets/img/localhost_3000_transfer_input_29585913-d305-4cf6-b3da-04d13825d28a.png)
+![Success](./src/assets/img/zwallet-pilar.netlify.app_transfer_success.png)
 
 ### Mobile Layout:
 ![Login](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(27).png)
