@@ -14,6 +14,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+## Demonstration
+
+[Zwallet App](https://zwallet-pilar.netlify.app/)
+
 ## Contents
 
 1. Log In
@@ -30,15 +34,18 @@ You may also see any lint errors in the console.
 In this repository, I used bootstrap framework to make the slicing contents based on figma and made it as similar as possible. For the responsive mobile, I used medium devices for media query range from bootstrap with min-width: 768px for tablet and desktop layout.
 
 ### React JS
+### Express JS
+
+Check out the backend repository for this project using Express JS [API](https://github.com/pilarhh/backend-zwallet.git)
 
 
 ## Snippets
 
 ### Desktop Layout:
-![alt text](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(28).png)
-![alt text](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(31).png)
-![alt text](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(29).png)
+![Login](./src/assets/img/localhost_3000_login.png)
+![Home](./src/assets/img/localhost_3000_.png)
+![Transfer]('./src/assets/img/localhost_3000_transfer_input_29585913-d305-4cf6-b3da-04d13825d28a.png)
+![Success]('./src/assets/img/zwallet-pilar.netlify.app_transfer_success.png)
 
 ### Mobile Layout:
-![alt text](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(27).png)
-![alt text](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(30).png)
+![Login](https://github.com/pilarhh/zwallet-react/blob/main/src/assets/img/Screenshot%20(27).png)
