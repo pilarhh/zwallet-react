@@ -23,7 +23,7 @@ import ProfilePicture from "./pages/ProfilePicture";
 const App = () => {
 
   useEffect(() => {
-    const socket = io('http://localhost:4000')
+    const socket = io('http://zwallet-pilar.herokuapp.com')
     console.log(socket);
   })
 
