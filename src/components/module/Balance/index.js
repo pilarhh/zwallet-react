@@ -25,11 +25,19 @@ const Balance = () => {
     dispatch(getDetailWallet(user.id))
   }, [])
 
+  const formatter = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR'
+  }).format(balance?.data.balance)
+  .replace('Rp', '')
+  .replace(/(,+\d{2})/, '')
+  .trimLeft()
+
   return (
     <div class="d-flex justify-content-between rounded bg-primary p-3 mt-3">
       <div class="col text-white mt-2">
         <p class="fw-lighter">Balance</p>
-        <h2 class="fw-bold fs-2">Rp{balance?.data.balance}</h2>
+        <h2 class="fw-bold fs-2">Rp{formatter}</h2>
         <p class="fw-lighter mt-3">{balance?.data.phone_number}</p>
       </div>
       <div class="d-flex justify-content-between d-none d-md-block mt-2">

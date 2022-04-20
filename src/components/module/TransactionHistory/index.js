@@ -26,6 +26,13 @@ const TransactionHistory = () => {
     return (
         <div class="col mt-3">
             {data?.data.map((item) => {
+                  const formatter = new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR'
+                  }).format(item.amount)
+                  .replace('Rp', '')
+                  .replace(/(,+\d{2})/, '')
+                  .trimLeft()
                 return (
                     <figure class="d-flex justify-content-between">
                         <div class="img-caption d-flex">
@@ -34,7 +41,7 @@ const TransactionHistory = () => {
                                 {item.receiver} <br></br><span className='fw-bolder'>{item.type}</span>
                             </figcaption>
                         </div>
-                        <figcaption class="fw-bold mt-3" style={{ color: colors(item.type) }}>{detail(item.type) ? detail(item.type) : item.amount}Rp{item.amount}</figcaption>
+                        <figcaption class="fw-bold mt-3" style={{ color: colors(item.type) }}>{detail(item.type) ? detail(item.type) : formatter}Rp{formatter}</figcaption>
                     </figure>
                 )
             })}

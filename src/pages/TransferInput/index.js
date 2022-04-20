@@ -15,7 +15,7 @@ import { getDetailWallet } from '../../redux/actions/walletDetail'
 
 const TransferInput = () => {
     const navigate = useNavigate()
-    const {id} = useParams()
+    const { id } = useParams()
     const user = JSON.parse(localStorage.getItem('user'))
     const idSender = user.id
 
@@ -48,10 +48,18 @@ const TransferInput = () => {
     }, [])
 
     const dataWallet = useSelector((state) => state.WalletDetail)
-  
+
     useEffect(() => {
-      dispatch(getDetailWallet(id))
+        dispatch(getDetailWallet(id))
     }, [])
+
+    const balance = new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR'
+    }).format(data?.data.balance)
+        .replace('Rp', '')
+        .replace(/(,+\d{2})/, '')
+        .trimLeft()
 
     return (
         <div className='d-flex flex-column wrapper-home'>
@@ -64,7 +72,7 @@ const TransferInput = () => {
                             <h4 class="d-none d-md-block fw-bold">Transfer Money</h4>
                             <div class="history-list mt-4">
                                 <figure class="d-flex shadow-sm p-2">
-                                    <img class="samuel-icon rounded-3" src={dataWallet.data.profile_picture} alt="" height='65' width='65'/>
+                                    <img class="samuel-icon rounded-3" src={dataWallet.data.profile_picture} alt="" height='65' width='65' />
                                     <figcaption class="lh-lg ms-4 fw-bolder">
                                         {dataWallet.data.username} <br></br> {dataWallet.data.phone_number}
                                     </figcaption>
@@ -76,7 +84,7 @@ const TransferInput = () => {
                             </p>
                             <div class="mt-4 text-center">
                                 <Input class="blue-focus border-0 text-center fs-2 amount fw-bolder" type="number" placeholder="0.00" name="amount" value={form.amount} onChange={handleChange}></Input>
-                                <p class="fw-bold my-4">Rp{data?.data.balance} Available</p>
+                                <p class="fw-bold my-4">Rp{balance} Available</p>
                                 <div class="form">
                                     <img src={pencil} alt="" />
                                     <Input class="blue-focus border-0 border-bottom w-50 ms-2" type="text" placeholder="Add some notes" name="notes" value={form.notes} onChange={handleChange}></Input>

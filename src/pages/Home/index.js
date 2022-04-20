@@ -35,7 +35,22 @@ const Home = () => {
 
 const dataIncome = useSelector((state) => state.Income)
 const dataExpense = useSelector((state) => state.Expense)
-console.log(dataExpense);
+
+const formatterIncome = new Intl.NumberFormat('id-ID', {
+  style: 'currency',
+  currency: 'IDR'
+}).format(dataIncome.data.amount)
+.replace('Rp', '')
+.replace(/(,+\d{2})/, '')
+.trimLeft()
+
+const formatterExpense = new Intl.NumberFormat('id-ID', {
+  style: 'currency',
+  currency: 'IDR'
+}).format(dataExpense.data.amount)
+.replace('Rp', '')
+.replace(/(,+\d{2})/, '')
+.trimLeft()
 
   return (
     <div className='d-flex flex-column wrapper-home'>
@@ -51,13 +66,13 @@ console.log(dataExpense);
                   <div class="income">
                     <img src={arrowGreen} alt="" />
                     <p class="text-charts fw-normal">Income</p>
-                    <h6 class="fw-bold">{dataIncome.data.amount}</h6>
+                    <h6 class="fw-bold">{formatterIncome}</h6>
                   </div>
                 </div>
                 <div class="col flex-grow-0">
                   <img src={arrowRed} alt="" />
                   <p class="text-charts fw-normal">Expense</p>
-                  <h6 class="fw-bold">{dataExpense.data.amount}</h6>
+                  <h6 class="fw-bold">{formatterExpense}</h6>
                 </div>
               </div>
               <div class="row g-0 text-center">

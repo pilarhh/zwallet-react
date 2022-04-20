@@ -51,6 +51,7 @@ const Navbar = () => {
             return require('../../../assets/img/arrow-up-red.svg').default
         }
     }
+
     
     return (
         <div className='header d-flex justify-content-between p-4 d-none d-md-flex shadow-sm bg-white'>
