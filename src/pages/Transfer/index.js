@@ -62,7 +62,7 @@ const Transfer = () => {
                             </form>
                             <div className='mt-4'>
                                 {data?.data.map((item) => {
-                                    if (item.username !== user.username) {
+                                    if (item.username !== user.username && item.role !== 'admin') {
                                         return (
                                             <figure class="d-flex text-decoration-none text-dark contacts shadow-sm p-2 rounded-3" onClick={() => navigate(`./input/${item.id}`)}>
                                                 <img class="samuel-icon rounded-3" src={item.profile_picture} alt="" height='65' width='65' />

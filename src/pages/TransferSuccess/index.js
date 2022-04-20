@@ -87,14 +87,14 @@ const TransferInput = () => {
                                 </figcaption>
                             </figure>
                             <div class="btn-desktop d-flex justify-content-end mb-2 ">
-                                <Button class="btn btn-light border-0 d-none d-md-block">
+                                <Button class="btn-light border-0 d-none d-md-block">
                                     <img src={share} alt="" />
                                 </Button>
-                                <Button class="btn btn-light border-0 mx-3 d-none d-md-block">
+                                <Button class="btn-light border-0 mx-3 d-none d-md-block">
                                     <img src={download} alt="" />
                                     <span class="text-primary ms-2">Download PDF</span>
                                 </Button>
-                                <Button class="btn btn-primary text-white p-3 border-0 d-none d-md-block" onClick={handleContinue}>
+                                <Button class="btn btn-primary text-white p-3 border-0 d-none d-md-block me-2" onClick={handleContinue}>
                                     Back to Home
                                 </Button>
                             </div>
